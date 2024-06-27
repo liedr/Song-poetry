@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>开启学习之旅</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #F2EAD1;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .firstbackground{
+        	width:100%;
+        	height:100%;
+        }
+
+        .first {
+            position: absolute;
+            top: 8%;
+            right: 0%;
+            width: 60%;
+            height: 78%;
+            animation: slideInFromRight 3s ease-in-out forwards;
+        }
+
+        .firstfont {
+            position: absolute;
+            top: 15%;
+            left: 3%;
+            width: 30%;
+            height: 70%;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        .into {
+            position: absolute;
+            top: 75%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            transition: transform 0.3s ease-in-out
+        }
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 7%;
+            height: 14%;
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                top: 10%;
+            }
+            100% {
+                opacity: 1;
+                top: 15%;
+            }
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('music');
+            audio.play();
+
+            var intoImg = document.getElementById('intoImg');
+            var scaleInterval;
+
+            animateIntoImg();
+
+
+            intoImg.addEventListener('mouseenter', function() {
+                clearInterval(scaleInterval); 
+            });
+
+
+            intoImg.addEventListener('mouseleave', function() {
+                animateIntoImg(); 
+            });
+
+
+            function animateIntoImg() {
+                scaleInterval = setInterval(function() {
+                    intoImg.style.transform = 'scale(1.05)';
+                    setTimeout(function() {
+                        intoImg.style.transform = 'scale(1)';
+                    }, 500);
+                }, 900);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="background">
+    	<img src="js/firstbackground.png" class="firstbackground">
+        <img src="js/firstpage.png" class="first">
+        <img src="js/firstfont.png" class="firstfont">
+        <img src="js/into.png" class="into" id="intoImg">
+        <img src="js/music.png" class="music">
+    </div>
+    <audio id="music" src="js/bird.mp3"></audio>
+</body>
+</html>
