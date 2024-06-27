@@ -58,7 +58,7 @@
             position: absolute;
             top: 2%;
             left: 2%;
-            width: 7%;
+            width: 8%;
             height: 14%;
         }
 
@@ -85,10 +85,17 @@
         }
     </style>
     <script>
-        window.onload = function() {
-            var audio = document.getElementById('music');
-            audio.play();
 
+	    function toggleMusic() {
+	        var music = document.getElementById('music');
+	        if (music.paused) {
+	            music.play();
+	        } else {
+	            music.pause();
+	        }
+	    }
+
+        window.onload = function() {
             var intoImg = document.getElementById('intoImg');
             var scaleInterval;
 
@@ -122,8 +129,8 @@
         <img src="js/firstpage.png" class="first">
         <img src="js/firstfont.png" class="firstfont">
         <img src="js/into.png" class="into" id="intoImg">
-        <img src="js/music.png" class="music">
+        <img src="js/music.png" class="music" onclick="toggleMusic()">
     </div>
-    <audio id="music" src="js/music.mp3"></audio>
+    <audio id="music" src="js/music.mp3" autoplay></audio>
 </body>
 </html>
