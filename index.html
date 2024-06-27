@@ -52,7 +52,8 @@
             left: 40%;
             width: 20%;
             height: 20%;
-            transition: transform 0.3s ease-in-out
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer; 
         }
         .music {
             position: absolute;
@@ -85,15 +86,18 @@
         }
     </style>
     <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
 
-	    function toggleMusic() {
-	        var music = document.getElementById('music');
-	        if (music.paused) {
-	            music.play();
-	        } else {
-	            music.pause();
-	        }
-	    }
+        function navigateToNextPage() {
+            window.location.href = 'directory.html';
+        }
 
         window.onload = function() {
             var intoImg = document.getElementById('intoImg');
@@ -101,16 +105,13 @@
 
             animateIntoImg();
 
-
             intoImg.addEventListener('mouseenter', function() {
                 clearInterval(scaleInterval); 
             });
 
-
             intoImg.addEventListener('mouseleave', function() {
                 animateIntoImg(); 
             });
-
 
             function animateIntoImg() {
                 scaleInterval = setInterval(function() {
@@ -128,9 +129,10 @@
     	<img src="js/firstbackground.png" class="firstbackground">
         <img src="js/firstpage.png" class="first">
         <img src="js/firstfont.png" class="firstfont">
-        <img src="js/into.png" class="into" id="intoImg">
+        <img src="js/into.png" class="into" id="intoImg" onclick="navigateToNextPage()">
         <img src="js/music.png" class="music" onclick="toggleMusic()">
     </div>
-    <audio id="music" src="js/music.mp3" autoplay></audio>
+    <audio id="music" src="js/music.mp3" autoplay loop></audio>
 </body>
 </html>
+
