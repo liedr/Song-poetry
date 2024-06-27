@@ -43,28 +43,30 @@
             height: 35%;
         }
 
-        .chapter1{
+        .chapter1 {
             position: absolute;
             top: 15%;
             left: 38%;
             width: 9%;
             height: 55%;
+            animation: glowAndScale 2s ease-in-out infinite alternate;
         }
         
-       	.chapter2{
+        .chapter2 {
             position: absolute;
             top: 15%;
             left: 53%;
             width: 9%;
             height: 55%;
         }
-        .chapter3{
+        .chapter3 {
             position: absolute;
             top: 15%;
             left: 68%;
             width: 9%;
             height: 55%;
-        }        
+        }
+        
         .music {
             position: absolute;
             top: 2%;
@@ -73,30 +75,22 @@
             height: 14%;
         }
 
-        @keyframes slideInFromRight {
+        @keyframes glowAndScale {
             0% {
-                opacity: 0;
-                transform: translateX(100%);
+                transform: scale(1);
+                filter: brightness(100%);
+            }
+            50% {
+                transform: scale(1.02);
+                filter: brightness(110%);
             }
             100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                top: 10%;
-            }
-            100% {
-                opacity: 1;
-                top: 15%;
+                transform: scale(1);
+                filter: brightness(100%);
             }
         }
     </style>
     <script>
-
 	    function toggleMusic() {
 	        var music = document.getElementById('music');
 	        if (music.paused) {
@@ -120,3 +114,4 @@
     <audio id="music" src="js/music.mp3" autoplay loop></audio>
 </body>
 </html>
+
