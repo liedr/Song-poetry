@@ -42,19 +42,26 @@
         ustify-content: space-between;
 		cursor: pointer;
     }  
-    .left-text, .right-text {  
-        flex: 1; 
-        padding-left: 100px; 
-        padding-right: 40px; 
-        font-family: 'LiSu', serif;
-		position: relative;
-    }
 
+    .left-text {  
+        flex: 1; 
+        font-family: 'LiSu', serif;
+		position: absolute;
+		left:10%;
+    }
+    .right-text {  
+        flex: 1;  
+        font-family: 'LiSu', serif;
+		position: absolute;
+		right:5%;
+    }
 	.end {
 		text-align: center;  
 		font-family: 'LiSu', serif;
-		margin-top: 75px;
-		margin-bottom: 10px;
+		position: absolute;
+		bottom:2%;
+		left:35%;
+		width:30%;
 	}
 	@keyframes fadeIn {  
 	    0% { opacity: 0; }  
@@ -152,7 +159,7 @@
         function navigateToLestPage() {
             window.location.href = 'directory.html';
         }
-        function navigateToNextPage() {
+        function navigateToLestPage() {
             window.location.href = 'allusion.html';
         }
 
@@ -189,7 +196,7 @@
 	    <div class="end">  
 	        <p style="font-size: 35px;">小提示:点击问题，连接诗句</p>  
 	    </div>
-	<img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">  
+	<img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToLestPage()">  
 	<audio id="music" src="js/music1.mp3" autoplay loop></audio>
 </body>    
 </html>
