@@ -62,7 +62,12 @@
             left: 2%;
             width: 8%;
             height: 14%;
-            animation: rotateMusic 4s linear infinite; /* Rotate animation added */
+            animation: rotateMusic 4s linear infinite; 
+        }
+
+        .music.rotate {
+            animation: none;
+            transform: rotate(0deg);
         }
 
         @keyframes slideInFromRight {
@@ -99,12 +104,19 @@
     <script>
         function toggleMusic() {
             var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
             if (music.paused) {
                 music.play();
+                musicImg.src = 'js/music1.png';
+                musicImg.classList.remove('rotate');
             } else {
                 music.pause();
+                musicImg.src = 'js/closemusic.png';                
+                musicImg.classList.add('rotate');
             }
         }
+
         function navigateToNextPage() {
             window.location.href = 'directory.html';
         }
