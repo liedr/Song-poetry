@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>朗读</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #F2EAD1;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .mountain{
+        	width:100%;
+        	height:100%;
+        }
+        .book{
+        	position: absolute;
+            top: 10%;
+            left: 12.5%;
+        	width:75%;
+        	height:80%;
+        	animation: moveRightToLeft 5s forwards; 
+        }
+        .back {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 7%;
+            height: 14%;
+            animation: moveLeft 2s infinite;
+            
+        }
+
+        .music {
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            width: 8%;
+            height: 14%;
+            animation: rotateMusic 4s linear infinite;
+        }
+
+        .music.rotate {
+            animation: none; 
+            transform: rotate(0deg);
+        }
+        
+		@keyframes moveLeft {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(-20%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+		
+		@keyframes moveRightToLeft {
+		    0% {
+		        opacity: 0;
+		    }
+		    100% {
+		        opacity: 1;
+		    }
+		}
+
+
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
+    </style>
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'js/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'js/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'directory.html';
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="background">
+        <img src="js/mountain.png" class="mountain">
+		<img src="js/book1.png" class="book">
+		<img src="js/back.png" class="back" onclick="navigateToLestPage()">
+        <img src="js/music1.png" class="music" onclick="toggleMusic()">
+    </div>
+    <audio id="music" src="js/read.mp3" autoplay loop></audio>
+</body>
+</html>
