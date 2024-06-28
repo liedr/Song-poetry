@@ -1,0 +1,212 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>自比孙权</title>  
+<style>  
+    body {
+		background: url("js/secondbackground.jpg") no-repeat center center; 
+		background-size: cover;      
+		background-attachment: fixed;   
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+        justify-content: center;  
+        height: 100vh;  
+        margin: 0;  
+        font-family: 'LiSu', serif;  
+        overflow: hidden;
+    }  
+  
+   .center-text {  
+       display: flex;  
+       justify-content: center; 
+       align-items: center;  
+   }
+  
+    .enlarged {  
+        font-size: 2em; 
+    }  
+  
+    .details {  
+        display: none;  
+        text-align: center;  
+        margin-top: 20px;  
+    }  
+  
+   .button {  
+        display: inline-block;  
+        padding: 10px 20px;  
+        background-color: transparent; 
+        color: white; 
+        border: none;  
+        cursor: pointer;  
+       }  
+	#overlay {  
+	    position: fixed;  
+	    top: 0;  
+	    left: 0;  
+	    width: 100%;  
+	    height: 100%;  
+	    z-index: 999; 
+	    display: none; 
+	    }
+	.details {  
+	    display: none;  
+	    text-align: center;  
+	    margin-top: 20px;  
+	    background-color: transparent;    
+		}
+
+	#details p {  
+        opacity: 0;  
+        transform: rotateY(180deg); 
+        transition: opacity 1s, transform 1s; 
+    }  
+   
+    @keyframes flipIn {  
+        0% {  
+            opacity: 0;  
+            transform: rotateY(180deg);  
+        }  
+        100% {  
+            opacity: 1;  
+            transform: rotateY(0deg);  
+        }  
+    }  
+	.music.rotate {
+        animation: none; 
+        transform: rotate(0deg);
+    }
+    
+	@keyframes moveLeft {
+	    0% {
+	        transform: translateX(0%);
+	    }
+	    50% {
+	        transform: translateX(-10%);
+	    }
+	    100% {
+	        transform: translateX(0%);
+	    }
+	}
+
+    @keyframes rotateMusic {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+        
+    }
+  
+    #details p:nth-child(1) { animation: flipIn 1s 1s forwards; }  
+    #details p:nth-child(2) { animation: flipIn 1s 2s forwards; }  
+    #details p:nth-child(3) { animation: flipIn 1s 3s forwards; }  
+ 
+    .center-text {  
+        text-align: center;  
+    }  
+  
+    #details {  
+        display: none;  
+    }  
+  
+    #details.show {  
+        display: block;  
+    }
+	.word{
+		color: darkblue;
+	}
+	.header-image {  
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        width: 7%;
+        height: 14%;
+	    animation: moveLeft 2s infinite;
+	    }
+	.music {  
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        width: 8%;
+        height: 14%;
+	    animation: rotateMusic 4s linear infinite;
+	    }
+	.footer-image {
+	   position: absolute;  
+	   bottom: 10px;   
+	   right: 10px; 
+	   width: 100px;  
+	   height: auto;
+	   }
+</style>  
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'js/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'js/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'allusion.html';
+        }
+        function navigateToNextPage() {
+            window.location.href = 'secondstory.html';
+        }
+
+    </script>
+</head>  
+<body>  
+  <img src="js/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
+  <img src="js/music1.png" class="music" onclick="toggleMusic()">
+<div id="overlay" onclick="hideDetails()"></div> 
+  
+<div class="center-text">  
+    <span id="sunLang" class="word"><p style="font-size: 80px;">亲射虎，看<span class="clickable" onclick="enlargeAndAlert(event)">孙郎</p></span></span>  
+    <button class="button" onclick="showDetails()">查看详情</button>  
+</div>  
+  
+<div id="details" class="details">  
+    <p style="font-size: 50px;">孙郎即孙权，这里是作者的自喻。</p>  
+    <p style="font-size: 55px;">《三国志·吴书·孙权传》中记载孙权在一次出行中，坐骑为虎所伤，他镇定地在马前击毙了老虎。</p>  
+    <p style="font-size: 60px;">这里指苏轼要像当年的孙权那样挽弓马前射虎，展现了苏轼虽然年事已高，但仍有少年狂气，塑造了一个力挽雕弓射天狼的英雄形象。</p>  
+</div>  
+  
+<script>  
+    document.querySelector('.clickable').addEventListener('click', function(event) {  
+        event.stopPropagation();  
+        this.classList.add('enlarged');  
+        alert('孙郎即孙权');  
+    });  
+  
+    function showDetails() {  
+        document.getElementById('details').style.display = 'block';  
+        document.getElementById('overlay').style.display = 'block'; 
+    }  
+  
+    function hideDetails() {  
+        document.getElementById('details').style.display = 'none';  
+        document.getElementById('overlay').style.display = 'none';  
+    }  
+    document.getElementById('details').addEventListener('click', function(event) {  
+        event.stopPropagation(); 
+    });  
+</script>  
+  <img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+  <audio id="music" src="js/music1.mp3" autoplay loop></audio>
+</body>  
+</html>
