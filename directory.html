@@ -65,7 +65,10 @@
             width: 9%;
             height: 55%;
         }
-        
+        .chapter1:hover, .chapter2:hover, .chapter3:hover {
+		    transform: scale(1.05);
+		    filter: brightness(110%);
+		}
         .music {
             position: absolute;
             top: 2%;
@@ -74,10 +77,11 @@
             height: 14%;
             animation: rotateMusic 4s linear infinite;
         }
-	.chapter1:hover, .chapter2:hover, .chapter3:hover {
-	    transform: scale(1.05);
-	    filter: brightness(110%);
-	}
+        
+        .music.rotate {
+            animation: none;
+            transform: rotate(0deg);
+        }
 
         
         @keyframes rotateMusic {
@@ -90,14 +94,29 @@
         }
     </style>
     <script>
-	    function toggleMusic() {
-	        var music = document.getElementById('music');
-	        if (music.paused) {
-	            music.play();
-	        } else {
-	            music.pause();
-	        }
-	    }
+    	function navigateToNextPage1() {
+            window.location.href = 'read.html';
+        }
+        function navigateToNextPage2() {
+            window.location.href = 'directory.html';
+        }
+        function navigateToNextPage3() {
+            window.location.href = 'directory.html';
+        }
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'js/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'js/closemusic.png';                
+                musicImg.classList.add('rotate');
+            }
+        }
     </script>
 </head>
 <body>
@@ -105,9 +124,9 @@
     	<img src="js/mountain.png" class="mountain">
         <img src="js/archery.png" class="archery">
         <img src="js/goose.png" class="goose">
-        <img src="js/chapter1.png" class="chapter1">
-        <img src="js/chapter2.png" class="chapter2">
-        <img src="js/chapter3.png" class="chapter3">
+        <img src="js/chapter1.png" class="chapter1"	onclick="navigateToNextPage1()">
+        <img src="js/chapter2.png" class="chapter2" onclick="navigateToNextPage2()">
+        <img src="js/chapter3.png" class="chapter3" onclick="navigateToNextPage3()">
         <img src="js/music1.png" class="music" onclick="toggleMusic()">
     </div>
     <audio id="music" src="js/music1.mp3" autoplay loop></audio>
