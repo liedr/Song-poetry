@@ -42,33 +42,30 @@
         ustify-content: space-between;
 		cursor: pointer;
     }  
-
-    .left-text {  
+    .left-text{  
+    	  color:#8B1A1A;
         flex: 1; 
+        padding-left: 100px; 
+        padding-right: 40px; 
         font-family: 'LiSu', serif;
-		position: absolute;
-	    	top:15%;
-		left:10%;
-    }
+				position: relative;
+    } 
     .right-text {  
-        flex: 1;  
+        flex: 1; 
+        padding-left: 100px; 
+        padding-right: 40px; 
         font-family: 'LiSu', serif;
-		position: absolute;
-	    	top:15%;
-		right:5%;
+		position: relative;
     }
 	.end {
 		text-align: center;  
 		font-family: 'LiSu', serif;
-		position: absolute;
-		bottom:2%;
-		left:35%;
-		width:30%;
+		margin-top: 75px;
 	}
 	@keyframes fadeIn {  
 	    0% { opacity: 0; }  
 	    100% { opacity: 1; }  
-	    }  
+	    } 
 	.fade-in-line {  
 	    display: block; 
 		opacity: 0;  
@@ -76,18 +73,24 @@
 	    animation-duration: 1s;
 	    animation-fill-mode: forwards; 
 	}
-	.left-text .fade-in-line:nth-of-type(1) { animation-delay: 2.4s; }  
-	.left-text .fade-in-line:nth-of-type(2) { animation-delay: 2.8s; }  
-	.left-text .fade-in-line:nth-of-type(3) { animation-delay: 3.2s; }
-	.left-text .fade-in-line:nth-of-type(4) { animation-delay: 3.6s; } 
-	.left-text .fade-in-line:nth-of-type(5) { animation-delay: 4s;   } 
-	.left-text .fade-in-line:nth-of-type(6) { animation-delay: 4.4s;  }
-	.right-text .fade-in-line:nth-of-type(1){ animation-delay: 4.8s;  }
-	.right-text .fade-in-line:nth-of-type(2) { animation-delay: 5.2s; }
-	.right-text .fade-in-line:nth-of-type(3) { animation-delay: 5.6s; }
-	.right-text .fade-in-line:nth-of-type(4) { animation-delay: 6s;   }
-	.right-text .fade-in-line:nth-of-type(5) { animation-delay: 6.4s; }
-	.right-text .fade-in-line:nth-of-type(6) { animation-delay: 6.8s; }
+		.fade-in-line:hover{  
+		    transform: scale(1.05);
+		    filter: brightness(110%);
+
+	}
+	
+	.left-text .fade-in-line:nth-of-type(1) { animation-delay: 1.2s; }  
+	.left-text .fade-in-line:nth-of-type(2) { animation-delay: 1.6s; }  
+	.left-text .fade-in-line:nth-of-type(3) { animation-delay: 2.0s; }
+	.left-text .fade-in-line:nth-of-type(4) { animation-delay: 2.4s; } 
+	.left-text .fade-in-line:nth-of-type(5) { animation-delay: 2.8s;   } 
+	.left-text .fade-in-line:nth-of-type(6) { animation-delay: 3.2s;  }
+	.right-text .fade-in-line:nth-of-type(1){ animation-delay: 3.6s;  }
+	.right-text .fade-in-line:nth-of-type(2) { animation-delay: 4.0s; }
+	.right-text .fade-in-line:nth-of-type(3) { animation-delay: 4.4s; }
+	.right-text .fade-in-line:nth-of-type(4) { animation-delay: 4.8s;   }
+	.right-text .fade-in-line:nth-of-type(5) { animation-delay: 5.2s; }
+	.right-text .fade-in-line:nth-of-type(6) { animation-delay: 5.6s; }
 	
 	.header-image {  
         position: absolute;
@@ -197,7 +200,7 @@
         </div>
     </div>
 	    <div class="end">  
-	        <p style="font-size: 35px;">小提示:点击问题，连接诗句</p>  
+	        <p style="font-size: 35px;">小提示:点击左侧问题，点击右侧对应词句，完成连线</p>  
 	    </div>
 	<img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">  
 	<audio id="music" src="js/music1.mp3" autoplay loop></audio>
