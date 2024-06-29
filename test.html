@@ -23,6 +23,13 @@
         height: 9.5%;
         animation: rotateMusic 4s linear infinite;
         }
+        .footer-image {
+		   position: absolute;  
+		   bottom: 10px;   
+		   right: 10px; 
+		   width: 100px;  
+		   height: auto;
+		}
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -220,9 +227,12 @@
                 musicImg.classList.add('rotate');
             }
         }
+    	function navigateToNextPage() {
+            window.location.href = 'directory.html';
+        }
 
         function navigateToLestPage() {
-            window.location.href = 'directory.html';
+            window.location.href = 'author.html';
         }
         // 等待整个文档加载完毕后执行JavaScript代码
         document.addEventListener("DOMContentLoaded", function() {
@@ -275,8 +285,10 @@
     <img class="tenth-image" src="img/read/9.png" alt="tenth Image">
 
     <img class="back" src="js/back.png" alt="back" onclick="navigateToLestPage()">
+    <img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
     <img src="js/music1.png" class="music" onclick="toggleMusic()">
     <audio id="music" src="js/music1.mp3" autoplay loop></audio>
     
 </body>
 </html>
+
