@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生僻字音</title>
+    <style>
+        /* 全局样式 */
+        .back {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5%;
+            height: 10%;
+            animation: moveLeft 2s infinite;
+            
+        }
+        .music {
+        position: absolute;
+        top: 2%;
+        left: 8%;
+        width: 5.5%;
+        height: 9.5%;
+        animation: rotateMusic 4s linear infinite;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/background.png'); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 背景图片尺寸，cover表示尽可能填充整个背景 */
+            background-position: center; /* 背景图片位置，居中显示 */
+            background-repeat: no-repeat; /* 背景图片不重复 */
+            background-attachment: fixed; /* 固定背景图片，使其在页面滚动时保持固定位置 */
+        }
+
+        /* 标题图片样式 */
+        .title-image {
+            display: block;
+            max-width: 30%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            opacity: 0; /* 初始设为透明 */
+            transition: opacity 1s ease-in-out; /* 过渡效果，持续1秒 */
+            margin: 0 auto; /* 居中显示 */
+            padding-top: 20px; /* 可选的上边距 */
+        }
+        .second-image {
+            opacity: 0; /* 初始设为透明 */
+            transition: opacity 1s ease-in-out; /* 过渡效果，持续1秒 */
+            position: absolute;
+            width: 30%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:20%;
+            left:8%;
+        /* 其他样式设置 */
+        }
+
+        .third-image {
+            opacity: 0; /* 初始设为透明 */
+            transition: opacity 1s ease-in-out; /* 过渡效果，持续1秒 */
+            position: absolute;
+            width: 30%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:40%;
+            left:22%;
+        }
+        .forth-image {
+            opacity: 0; /* 初始设为透明 */
+            transition: opacity 1s ease-in-out; /* 过渡效果，持续1秒 */
+            position: absolute;
+            width: 30%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:60%;
+            left:36%;
+        }
+
+        .fifth-image {
+            position: absolute;
+            width: 5%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:30%;
+            left:13%;
+            transition: transform 0.3s ease;
+        }
+        .fifth-image:hover {
+            transform: scale(1.1); /* 悬停时放大到 1.1 倍 */
+        }
+        .sixth-image {
+            position: absolute;
+            width: 5.3%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:30.8%;
+            left:25%;
+            transition: transform 0.3s ease;  
+        }
+
+        .sixth-image:hover {
+            transform: scale(1.1); /* 悬停时放大到 1.1 倍 */
+        }
+
+
+        .seventh-image {
+            position: absolute;
+            width: 8.3%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:50.8%;
+            left:28%;
+            transition: transform 0.3s ease; 
+            
+        }
+        .seventh-image:hover {
+            transform: scale(1.1); 
+             
+        }
+      
+        .eighth-image {
+            position: absolute;
+            width: 8.3%; 
+            height: auto;
+            top:50.8%;
+            left:40%;
+            transition: transform 0.3s ease; 
+            
+        }
+        .eighth-image:hover {
+            transform: scale(1.1); 
+            
+        }
+
+        .ninth-image {
+            position: absolute;
+            width: 8.3%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:70%;
+            left:43%;
+            transition: transform 0.3s ease; 
+           
+        }
+        .ninth-image:hover {
+            transform: scale(1.1); 
+             
+        }
+
+        .tenth-image {
+            position: absolute;
+            width: 7%; /* 设置最大宽度，可以根据需要调整 */
+            height: auto; /* 高度自适应 */
+            top:70%;
+            left:56%;
+            transition: transform 0.3s ease; 
+            
+        }
+        .tenth-image:hover {
+            transform: scale(1.1); 
+             
+        }
+
+
+
+
+
+
+        /* 设置标题图片的淡入效果 */
+        .title-image.loaded {
+            opacity: 1; /* 加载后设置不透明度为1，即完全显示 */
+        }
+
+        .second-image.loaded {
+            opacity: 1; /* 加载后设置不透明度为1，即完全显示 */
+        }
+
+        .third-image.loaded {
+            opacity: 1; /* 加载后设置不透明度为1，即完全显示 */
+        }
+        .forth-image.loaded {
+            opacity: 1; /* 加载后设置不透明度为1，即完全显示 */
+        }
+              .music.rotate {
+            animation: none; 
+            transform: rotate(0deg);
+        }
+        
+		@keyframes moveLeft {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(-20%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
+       
+
+    </style>
+    <script>
+    	function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'js/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'js/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'directory.html';
+        }
+        // 等待整个文档加载完毕后执行JavaScript代码
+        document.addEventListener("DOMContentLoaded", function() {
+            var titleImage = document.querySelector('.title-image');
+            var secondImage = document.querySelector('.second-image');
+            var thirdImage = document.querySelector('.third-image');
+            var forthImage = document.querySelector('.forth-image');
+            
+            // 等待图片完全加载后，添加.loaded类以显示图片
+            titleImage.onload = function() {
+                titleImage.classList.add('loaded');
+            }
+
+            titleImage.addEventListener('load', function() {
+                // 延时一段时间再显示第二张图片，模拟效果
+                setTimeout(function() {
+                    secondImage.style.opacity = '1';
+                }, 500); // 等待0.5秒后显示第二张图片
+            });
+
+
+            titleImage.addEventListener('load', function() {
+                setTimeout(function() {
+                    thirdImage.style.opacity = '1';
+                }, 1000); 
+            });
+
+            titleImage.addEventListener('load', function() {
+               
+                setTimeout(function() {
+                    forthImage.style.opacity = '1';
+                }, 1500); 
+            });
+
+          
+        });
+    </script>
+</head>
+<body>
+
+    <img class="title-image" src="img/title.png" alt="Title Image">
+    <img class="second-image" src="img/read/1.png" alt="Second Image">
+    <img class="third-image" src="img/read/2.png" alt="third Image">
+    <img class="forth-image" src="img/read/3.png" alt="forth Image">
+    <img class="fifth-image" src="img/read/4.png" alt="fifth Image">
+    <img class="sixth-image" src="img/read/5.png" alt="sixth Image">
+    <img class="seventh-image" src="img/read/6.png" alt="seventh Image">
+    <img class="eighth-image" src="img/read/7.png" alt="eighth Image">
+    <img class="ninth-image" src="img/read/8.png" alt="ninth Image">
+    <img class="tenth-image" src="img/read/9.png" alt="tenth Image">
+
+    <img class="back" src="js/back.png" alt="back" onclick="navigateToLestPage()">
+    <img src="js/music1.png" class="music" onclick="toggleMusic()">
+    <audio id="music" src="js/music1.mp3" autoplay loop></audio>
+    
+</body>
+</html>
