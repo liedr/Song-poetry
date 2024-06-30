@@ -59,7 +59,7 @@
 		}
 		.live:hover, .books:hover, .achieve:hover {
 		    transform: scale(1.10);
-		    filter: brightness(115%);
+		    filter: brightness(130%);
 		}
 
 		.frame {
@@ -80,46 +80,70 @@
             width:100%;
             height: 100%;
 		}
+        .books1{
+			position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+            opacity: 0;
+		}
+        .achieve1{
+			position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+            opacity: 0;
+		}				
         .author {
 		    position: absolute;
-		    bottom: -0.1%; /* Adjust as needed for positioning */
-		    left: 0%; /* Adjust as needed for positioning */
-		    width: 23%; /* Adjust as needed for size */
-		    height: auto;
-		    border-radius: 20px; /* Applies rounded corners */
+		    bottom: -0.1%; 
+		    left: 0%; 
+		    width: 23%; 
+		    height: 95%;
+		    border-radius: 20px; 
+
+		}
+		.author1 {
+		    position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+            opacity: 0.3;
 
 		}
 		.verse {
 		    position: absolute;
-		    bottom: 1%; /* Adjust as needed for positioning */
-		    left: 40%; /* Adjust as needed for positioning */
-		    width: 35%; /* Adjust as needed for size */
+		    bottom: 1%;
+		    left: 40%; 
+		    width: 35%; 
 		    height: auto;
 
 		}
 		.font{
-			font-family: "楷体";
-			font-size:18px;
-			line-height: 20px;
-			font-weight: bold;
 			position: absolute;
-		    top: 1%; /* Adjust as needed for positioning */
-		    left: 24%; /* Adjust as needed for positioning */
-		    width: 70%; /* Adjust as needed for size */
+		    top: 8%; 
+		    left: 28%; 
+		    width:68%;
 
 			
 		}
 		.font1{
-			font-family: "楷体";
-			font-size:15px;
-			line-height:18px;
-			font-weight: bold;
 			position: absolute;
-		    top: 15%; /* Adjust as needed for positioning */
-		    left: 24%; /* Adjust as needed for positioning */
-		    width: 70%; /* Adjust as needed for size */
+		    top: 33%; 
+		    left: 28%;
+		    width:68%;
 
 		}
+		.font2{
+			position: absolute;
+		    top: 2%; 
+		    left: 10%;
+		    width:80%;
+
+		}		
 
 
         .back {
@@ -141,42 +165,41 @@
             animation: rotateMusic 4s linear infinite;
         }
         .footer-image {
-	   position: absolute;  
-	   bottom: 2%;   
-	   right: 3%; 
+		   position: absolute;  
+		   bottom: 2%;   
+		   right: 2%; 
        	   width: 5%;
            height:15%;
            animation: moveright 2s infinite;
-	}
-
+		}
+		@keyframes moveright {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(40%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
         .music.rotate {
             animation: none; 
             transform: rotate(0deg);
         }
         
-	@keyframes moveLeft {
-	    0% {
-		transform: translateX(0%);
-	    }
-	    50% {
-		transform: translateX(-20%);
-	    }
-	    100% {
-		transform: translateX(0%);
-	    }
-	}
+		@keyframes moveLeft {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(-20%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
 
-	@keyframes moveright {
-	    0% {
-		transform: translateX(0%);
-	    }
-	    50% {
-		transform: translateX(20%);
-	    }
-	    100% {
-		transform: translateX(0%);
-	    }
-	}
 		
 
 
@@ -213,7 +236,30 @@
         function navigateToNextPage() {
             window.location.href = 'test.html';
         }
-
+        function toggleLiveDetails() {
+            var liveDetails = document.querySelector('.live1');
+            var bookDetails = document.querySelector('.books1');
+            var achieveDetails = document.querySelector('.achieve1');
+            liveDetails.style.opacity = '1';
+            bookDetails.style.opacity = '0';
+            achieveDetails.style.opacity = '0';
+        }
+        function togglebookDetails() {
+            var liveDetails = document.querySelector('.live1');
+            var bookDetails = document.querySelector('.books1');
+            var achieveDetails = document.querySelector('.achieve1');
+            liveDetails.style.opacity = '0';
+            bookDetails.style.opacity = '1';
+            achieveDetails.style.opacity = '0';
+        }        
+        function toggleachieveDetails() {
+            var liveDetails = document.querySelector('.live1');
+            var bookDetails = document.querySelector('.books1');
+            var achieveDetails = document.querySelector('.achieve1');
+            liveDetails.style.opacity = '0';
+            bookDetails.style.opacity = '0';
+            achieveDetails.style.opacity = '1';
+        }
     </script>
 </head>
 <body>
@@ -223,23 +269,24 @@
 		<img src="js/back.png" class="back" onclick="navigateToLestPage()">
 		<img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
         <img src="js/music1.png" class="music" onclick="toggleMusic()">
-		<img src="img/live.png" class="live">
-		<img src="img/books.png" class="books">
-		<img src="img/achieve.png" class="achieve">
+		<img src="img/live.png" class="live" onclick="toggleLiveDetails()">
+		<img src="img/books.png" class="books" onclick="togglebookDetails()">
+		<img src="img/achieve.png" class="achieve" onclick="toggleachieveDetails()">
 		<div class="frame">
 			
 			<div class="live1">
 				<img src="img/author.png" class="author">
 				<img src="img/verse.png" class="verse">
-				<p class="font"> &ensp;&ensp;苏轼（1037年1月8日—1101年8月24日），字子瞻,号铁冠道人、东坡居士，世称苏东坡、苏仙 。
-					汉族，眉州眉山（今属四川省眉山市）人，北宋文学家、书法家、画家 。</p>
-				<div class="font1">
-					<p>进京应试，名动京师：嘉祐元年，苏轼首次出川赴京科考。在欧阳修的称赞下，苏轼声名大噪，每有新作，必会传遍京师。</p>
-					<p>自请出京，乌台诗案：熙宁四年，苏轼上书谈论新法的弊病，与王安石生出嫌隙。苏轼自请出京任职，颇有政绩。元丰二年，苏轼四十三岁，调任湖州知州。上任后，他即上书一封《湖州谢表》，苏轼是诗人，官样文章，也忘不了加上点个人色彩，说自己“愚不适时，难以追陪新进”等，这些话被新党抓了辫子，惨遭污蔑。苏轼上任才三个月，就被御史台的吏卒逮捕，解往京师，受牵连者达数十人。这就是北宋著名的“乌台诗案”</p>
-					<p>被贬黄州，东山再起：出狱后，苏轼被降职为黄州团练副使。元丰七年，苏轼奉诏赴汝州就任。汝州路远，且路费已尽，再加上丧子之痛，苏轼上书朝廷，获准先到常州居住。</p>
-					<p>筑建苏堤，流落儋州：元祐四年，苏轼任龙图阁学士知杭州。由于西湖长期没有疏浚，严重影响农业生产。苏轼来杭州的第二年率众疏浚西湖，并在湖水最深处建立三塔作为标志。元祐六年，他被召回朝。不久因政见不合，被调离朝堂，辗转地方</p>
-					<p>最后结局：元符三年大赦，北归途中，于建中靖国元年卒于常州。宋高宗即位后，追赠苏轼为太师，谥为“文忠”。</p>
-				</div>
+				<img src="img/font.png" class="font">
+				<img src="img/font1.png" class="font1">
+			</div>
+			<div class="books1">
+				<img src="img/book.png" class="author">
+				<img src="img/font2.png" class="font">
+			</div>
+			<div class="achieve1">
+				<img src="img/picture.png" class="author1">
+				<img src="img/font3.png" class="font2">
 			</div>
 		
 		</div>
