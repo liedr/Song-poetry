@@ -136,13 +136,25 @@
         height: 9.5%;
         animation: rotateMusic 4s linear infinite;
         }
-	.footer-image {
+        .footer-image {
 	   position: absolute;  
-	   bottom: 10px;   
-	   right: 10px; 
-	   width: 100px;  
-	   height: auto;
-	   }
+	   bottom: 2%;   
+	   right: 2%; 
+       	   width: 5%;
+           height:15%;
+           animation: moveright 2s infinite;
+	}
+	@keyframes moveright {
+	    0% {
+		transform: translateX(0%);
+	    }
+	    50% {
+		transform: translateX(40%);
+	    }
+	    100% {
+		transform: translateX(0%);
+	    }
+	}
 </style>  
 
     <script>
