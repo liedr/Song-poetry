@@ -19,6 +19,7 @@
     }  
   
    .center-text {  
+       height:15%;
        display: flex;  
        justify-content: center; 
        align-items: center;  
@@ -27,18 +28,12 @@
     .enlarged {  
         font-size: 2em; 
     }  
-  
-    .details {  
-        display: none;  
-        text-align: center;  
-        margin-top: 20px;  
-    }  
-  
+
    .button {  
         display: inline-block;  
-        padding: 10px 20px;  
         background-color: transparent; 
-        color: white; 
+        color:#B22222; 
+        font-size: 20px;
         border: none;  
         cursor: pointer;  
        }  
@@ -53,25 +48,28 @@
 	    }
 	.details {  
 	    display: none;  
-	    text-align: center;  
-	    margin-top: 20px;  
-	    background-color: transparent;    
+	    width:80%;
+	    height:60%;
+	    background-color: #FFEFD5; 
+        border: 15px solid #EEC591; 
+        border-radius: 60px;
 		}
 
 	#details p {  
+		position: relative;
+		top:0;
+		width:90%;
+		left:5%;
         opacity: 0;  
-        transform: rotateY(180deg); 
         transition: opacity 1s, transform 1s; 
     }  
    
     @keyframes flipIn {  
         0% {  
             opacity: 0;  
-            transform: rotateY(180deg);  
         }  
         100% {  
-            opacity: 1;  
-            transform: rotateY(0deg);  
+            opacity: 1;   
         }  
     }  
     .music.rotate {
@@ -105,10 +103,6 @@
     #details p:nth-child(2) { animation: flipIn 1s 2s forwards; }  
     #details p:nth-child(3) { animation: flipIn 1s 3s forwards; }  
  
-    .center-text {  
-        text-align: center;  
-    }  
-  
     #details {  
         display: none;  
     }  
@@ -117,7 +111,7 @@
         display: block;  
     }
 	.word{
-		color: darkblue;
+		color: #363636;
 	}
 	.header-image {  
         position: absolute;
@@ -189,23 +183,17 @@
 <div id="overlay" onclick="hideDetails()"></div> 
   
 <div class="center-text">  
-    <span id="sunLang" class="word"><p style="font-size: 80px;">持节云中，何日遣<span class="clickable" onclick="enlargeAndAlert(event)">冯唐</p></span></span>  
+    <span id="sunLang" class="word"><p style="font-size: 70px;">持节云中，何日遣冯唐</p></span>  
     <button class="button" onclick="showDetails()">查看详情</button>  
 </div>  
   
 <div id="details" class="details">  
-    <p style="font-size: 50px;">冯唐，汉文帝时的一个年老的郎官。</p>  
-    <p style="font-size: 55px;">据《史记·张释之冯唐列传》记载在汉文帝时，魏尚为云中太守，抵御匈奴有功，只因报功时多报了六个首级而获罪削职。后来，文帝采纳了冯唐的劝谏，派冯唐持符节到云中去赦免魏尚。</p>  
-    <p style="font-size: 60px;">这里苏轼以魏尚自喻，表达了苏轼希望朝廷能像派冯唐赦魏尚那样重新重用自己。</p>  
+    <p style="font-size: 40px;">冯唐，汉文帝时的一个年老的郎官。</p>  
+    <p style="font-size: 40px;">据《史记·张释之冯唐列传》记载在汉文帝时，魏尚为云中太守，抵御匈奴有功，只因报功时多报了六个首级而获罪削职。后来，文帝采纳了冯唐的劝谏，派冯唐持符节到云中去赦免魏尚。</p>  
+    <p style="font-size: 40px;">这里苏轼以魏尚自喻，表达了苏轼希望朝廷能像派冯唐赦魏尚那样重新重用自己。</p>  
 </div>  
   
 <script>  
-    document.querySelector('.clickable').addEventListener('click', function(event) {  
-        event.stopPropagation();  
-        this.classList.add('enlarged');  
-        alert('冯唐，汉文帝时的一个年老的郎官。');  
-    });  
-  
     function showDetails() {  
         document.getElementById('details').style.display = 'block';  
         document.getElementById('overlay').style.display = 'block'; 
