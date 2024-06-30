@@ -19,6 +19,7 @@
     }  
   
    .center-text {  
+   	   height:15%;
        display: flex;  
        justify-content: center; 
        align-items: center;  
@@ -27,18 +28,11 @@
     .enlarged {  
         font-size: 2em; 
     }  
-  
-    .details {  
-        display: none;  
-        text-align: center;  
-        margin-top: 20px;  
-    }  
-  
    .button {  
         display: inline-block;  
-        padding: 10px 20px;  
         background-color: transparent; 
-        color: white; 
+        color:#B22222; 
+        font-size: 20px;
         border: none;  
         cursor: pointer;  
        }  
@@ -53,25 +47,28 @@
 	    }
 	.details {  
 	    display: none;  
-	    text-align: center;  
-	    margin-top: 20px;  
-	    background-color: transparent;    
+	    width:80%;
+	    height:60%;
+	    background-color: #FFEFD5; 
+        border: 15px solid #EEC591; 
+        border-radius: 60px;
 		}
 
 	#details p {  
+		position: relative;
+		top:0;
+		width:90%;
+		left:5%;
         opacity: 0;  
-        transform: rotateY(180deg); 
         transition: opacity 1s, transform 1s; 
     }  
    
     @keyframes flipIn {  
         0% {  
             opacity: 0;  
-            transform: rotateY(180deg);  
         }  
         100% {  
             opacity: 1;  
-            transform: rotateY(0deg);  
         }  
     }  
     
@@ -105,11 +102,7 @@
     #details p:nth-child(1) { animation: flipIn 1s 1s forwards; }  
     #details p:nth-child(2) { animation: flipIn 1s 2s forwards; }  
     #details p:nth-child(3) { animation: flipIn 1s 3s forwards; }  
- 
-    .center-text {  
-        text-align: center;  
-    }  
-  
+
     #details {  
         display: none;  
     }  
@@ -118,7 +111,7 @@
         display: block;  
     }
 	.word{
-		color: darkblue;
+		color: #363636;
 	}
 	.header-image {  
         position: absolute;
@@ -190,23 +183,17 @@
 <div id="overlay" onclick="hideDetails()"></div> 
   
 <div class="center-text">  
-    <span id="sunLang" class="word"><p style="font-size: 80px;">会挽雕弓如满月，西北望，射<span class="clickable" onclick="enlargeAndAlert(event)">天狼</p></span></span>  
+    <span id="sunLang" class="word"><p style="font-size: 70px;">会挽雕弓如满月，西北望，射天狼</p></span>  
     <button class="button" onclick="showDetails()">查看详情</button>  
 </div>  
   
 <div id="details" class="details">  
-    <p style="font-size: 50px;">天狼，星名，即天狼星。</p>  
-    <p style="font-size: 55px;">古代传说，狼星出现，必有外来的侵掠。</p>  
-    <p style="font-size: 60px;">此处代指从西北来进扰的西夏军队，苏轼借此表达自己要报效国家，抵御入侵者，建功立业的雄心壮志。</p>  
+    <p style="font-size: 45px;">天狼，星名，即天狼星。</p>  
+    <p style="font-size: 45px;">古代传说，狼星出现，必有外来的侵掠。</p>  
+    <p style="font-size: 45px;">此处代指从西北来进扰的西夏军队，苏轼借此表达自己要报效国家，抵御入侵者，建功立业的雄心壮志。</p>  
 </div>  
   
 <script>  
-    document.querySelector('.clickable').addEventListener('click', function(event) {  
-        event.stopPropagation();  
-        this.classList.add('enlarged');  
-        alert('孙郎即孙权');  
-    });  
-  
     function showDetails() {  
         document.getElementById('details').style.display = 'block';  
         document.getElementById('overlay').style.display = 'block'; 
