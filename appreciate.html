@@ -1,176 +1,160 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-  <meta charset="utf-8" />  
-    <title>品鉴词文</title>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>品鉴词文</title>
     <style type="text/css">
-	@keyframes flipVertical {  
-      0% {  
-        transform: rotateY(0deg);  
-      }  
-      100% {  
-        transform: rotateY(360deg); 
-      }  
-    }
-	* {  
-	    margin: 0;
-	    padding: 0;  
-	    box-sizing: border-box; 
-	}  
-    body {  
-        background: url("js/mountain.png") no-repeat center center;  
-        background-size: cover;  
-        background-attachment: fixed;  
-        background-color: #CCCCCC; 
-        overflow: hidden;
-    }
-    .main {  
-        text-align: center;  
-        font-family: 'LiSu', serif;
-		margin-bottom: 55px;
-		margin-top: 10px;
-	} 
-    .red-word {  
-        color: red;
-		cursor: pointer;
-		display: inline-block;
-		animation: flipVertical 2s linear;
-    }  
-    .container {
-		position: relative;
-        display: flex;  
-        ustify-content: space-between;
-		cursor: pointer;
-    }  
-    .left-text{  
-    	color:#8B1A1A;
-        flex: 1; 
-        font-family: 'LiSu', serif;
-        position: absolute;
-        bottom: 40px;
-        left: 5%;
-        width:35%;
-        height: 50%;
-	
-    } 
-    .right-text {  
-        flex: 1; 
-        font-family: 'LiSu', serif;
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        width: 45%;
-        height: 50%;
-    }
-	.end {
-	        position: absolute;
-	        bottom: 0px;
-	        left: 20%;
-	        width: auto;
-	        height: 30px;
-		text-align: center;  
-		font-family: 'LiSu', serif;
-	}
-	@keyframes fadeIn {  
-	    0% { opacity: 0; }  
-	    100% { opacity: 1; }  
-	    } 
-	.fade-in-line {  
-	    display: block; 
-		opacity: 0;  
-	    animation-name: fadeIn;  
-	    animation-duration: 1s;
-	    animation-fill-mode: forwards; 
-	}
-		.fade-in-line:hover{  
-		    transform: scale(1.05);
-		    filter: brightness(110%);
-
-	}
-	
-	.left-text .fade-in-line:nth-of-type(1) { animation-delay: 1.2s; }  
-	.left-text .fade-in-line:nth-of-type(2) { animation-delay: 1.6s; }  
-	.left-text .fade-in-line:nth-of-type(3) { animation-delay: 2.0s; }
-	.left-text .fade-in-line:nth-of-type(4) { animation-delay: 2.4s; } 
-	.left-text .fade-in-line:nth-of-type(5) { animation-delay: 2.8s;   } 
-	.left-text .fade-in-line:nth-of-type(6) { animation-delay: 3.2s;  }
-	.right-text .fade-in-line:nth-of-type(1){ animation-delay: 3.6s;  }
-	.right-text .fade-in-line:nth-of-type(2) { animation-delay: 4.0s; }
-	.right-text .fade-in-line:nth-of-type(3) { animation-delay: 4.4s; }
-	.right-text .fade-in-line:nth-of-type(4) { animation-delay: 4.8s;   }
-	.right-text .fade-in-line:nth-of-type(5) { animation-delay: 5.2s; }
-	.right-text .fade-in-line:nth-of-type(6) { animation-delay: 5.6s; }
-	
-	.header-image {  
-        position: absolute;
-        top: 2%;
-        left: 2%;
-        width: 5%;
-        height: 10%;
-        animation: moveLeft 2s infinite;
-	    }
-
-    .music {
-        position: absolute;
-        top: 2%;
-        left: 8%;
-        width: 5.5%;
-        height: 9.5%;
-        animation: rotateMusic 4s linear infinite;
-        }	
-		
+        @keyframes flipVertical {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url("js/mountain.png") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #CCCCCC;
+            overflow: hidden;
+        }
+        .main {
+            text-align: center;
+            font-family: 'LiSu', serif;
+            margin-bottom: 55px;
+            margin-top: 10px;
+        }
+        .red-word {
+            color: red;
+            cursor: pointer;
+            display: inline-block;
+            animation: flipVertical 2s linear;
+        }
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .left-text {
+            color: #8B1A1A;
+            flex: 1;
+            font-family: 'LiSu', serif;
+            position: absolute;
+            bottom: 40px;
+            left: 5%;
+            width: 35%;
+            height: 50%;
+        }
+        .right-text {
+            flex: 1;
+            font-family: 'LiSu', serif;
+            position: absolute;
+            bottom: 40px;
+            right:3%;
+            width: 45%;
+            height: 50%;
+        }
+        .end {
+            position: absolute;
+            bottom: 10px;
+            left: 20%;
+            width: auto;
+            height: 30px;
+            text-align: center;
+            font-family: 'LiSu', serif;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .fade-in-line {
+            display: block;
+            opacity: 0;
+            animation-name: fadeIn;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+        .fade-in-line:hover {
+            transform: scale(1.05);
+            filter: brightness(110%);
+        }
+        .left-text .fade-in-line:nth-of-type(1) { animation-delay: 1.2s; }
+        .left-text .fade-in-line:nth-of-type(2) { animation-delay: 1.6s; }
+        .left-text .fade-in-line:nth-of-type(3) { animation-delay: 2.0s; }
+        .left-text .fade-in-line:nth-of-type(4) { animation-delay: 2.4s; }
+        .left-text .fade-in-line:nth-of-type(5) { animation-delay: 2.8s; }
+        .left-text .fade-in-line:nth-of-type(6) { animation-delay: 3.2s; }
+        .right-text .fade-in-line:nth-of-type(1) { animation-delay: 3.6s; }
+        .right-text .fade-in-line:nth-of-type(2) { animation-delay: 4.0s; }
+        .right-text .fade-in-line:nth-of-type(3) { animation-delay: 4.4s; }
+        .right-text .fade-in-line:nth-of-type(4) { animation-delay: 4.8s; }
+        .right-text .fade-in-line:nth-of-type(5) { animation-delay: 5.2s; }
+        .right-text .fade-in-line:nth-of-type(6) { animation-delay: 5.6s; }
+        .header-image {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5%;
+            height: 10%;
+            animation: moveLeft 2s infinite;
+        }
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 8%;
+            width: 5.5%;
+            height: 9.5%;
+            animation: rotateMusic 4s linear infinite;
+        }
         .footer-image {
-	   position: absolute;  
-	   bottom: 2%;   
-	   right: 3%; 
+		   position: absolute;  
+		   bottom: 2%;   
+		   right: 2%; 
        	   width: 5%;
            height:15%;
            animation: moveright 2s infinite;
 		}
-	@keyframes moveright {
-	    0% {
-		transform: translateX(0%);
-	    }
-	    50% {
-		transform: translateX(40%);
-	    }
-	    100% {
-		transform: translateX(0%);
-	    }
-	} 
-	    
-	    .music.rotate {
-            animation: none; 
-            transform: rotate(0deg);
-        }
-        
-		@keyframes moveLeft {
+		@keyframes moveright {
 		    0% {
 		        transform: translateX(0%);
 		    }
 		    50% {
-		        transform: translateX(-10%);
+		        transform: translateX(40%);
 		    }
 		    100% {
 		        transform: translateX(0%);
 		    }
 		}
-
-        @keyframes rotateMusic {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-            
+        .music.rotate {
+            animation: none;
+            transform: rotate(0deg);
         }
-    </style>  
+        @keyframes moveLeft {
+            0% { transform: translateX(0%); }
+            50% { transform: translateX(-10%); }
+            100% { transform: translateX(0%); }
+        }
+        @keyframes rotateMusic {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .line {
+            position: absolute;
+            background-color: #B22222;
+            height: 5px;
+            transform-origin: left;
+        }
+    </style>
     <script>
+        let startPoint = null;
+        let endPoint = null;
+
         function toggleMusic() {
             var music = document.getElementById('music');
             var musicImg = document.querySelector('.music');
-
             if (music.paused) {
                 music.play();
                 musicImg.src = 'js/music1.png';
@@ -178,7 +162,6 @@
             } else {
                 music.pause();
                 musicImg.src = 'js/closemusic.png';
-                
                 musicImg.classList.add('rotate');
             }
         }
@@ -186,44 +169,76 @@
         function navigateToLestPage() {
             window.location.href = 'directory.html';
         }
+
         function navigateToNextPage() {
             window.location.href = 'allusion.html';
         }
 
+        function createLine(x1, y1, x2, y2) {
+            const length = Math.hypot(x2 - x1, y2 - y1);
+            const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+            const line = document.createElement('div');
+            line.className = 'line';
+            line.style.width = `${length}px`;
+            line.style.left = `${x1}px`;
+            line.style.top = `${y1}px`;
+            line.style.transform = `rotate(${angle}deg)`;
+            document.body.appendChild(line);
+        }
+
+        function handleClick(e, isLeft) {
+		    const target = e.target.closest('.fade-in-line');
+		    if (!target) return;
+		
+		    if (isLeft) {
+		        startPoint = target.getBoundingClientRect();
+		    } else if (startPoint) {
+		        const endPoint = target.getBoundingClientRect();
+		        createLine(
+		            startPoint.x + startPoint.width / 2,
+		            startPoint.y + startPoint.height / 2,
+		            endPoint.x + endPoint.width / 8,
+		            endPoint.y + endPoint.height / 2
+		        );
+		        startPoint = null;
+		    }
+		}
+        
     </script>
-</head>  
-<body> 
-   <img src="js/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
-   <img src="js/music1.png" class="music" onclick="toggleMusic()">
-    <div class="main">  
-		<p style="font-size: 80px;">品“<span class="red-word" >狂</span>”  
-        </div>   
-    <div class="container">  
-        <div class="left-text">  
-            <p  style="font-size: 45px;">  
-                <span class="fade-in-line">狂在装备精良</span><br>  
-                <span class="fade-in-line">狂在队伍浩大</span><br>  
-                <span class="fade-in-line">狂在深得民心，百姓倾城</span><br> 
-                <span class="fade-in-line">狂在英武非凡，自比孙郎</span><br>
-                <span class="fade-in-line">狂在老当益壮</span><br>
-                <span class="fade-in-line">狂在壮志凌云 </span> 
-            </p>  
-        </div>  
-        <div class="right-text">  
-            <p style="font-size: 45px;">  
-                <span class="fade-in-line">为报倾城随太守</span><br> 
-                <span class="fade-in-line">亲射虎，看孙郎</span><br> 
-                <span class="fade-in-line">千骑卷平岗</span><br> 
-                <span class="fade-in-line">会挽雕弓如满月，西北望，射天狼</span><br> 
-                <span class="fade-in-line">鬓微霜，又何妨</span><br> 
-                <span class="fade-in-line">左牵黄，右擎苍，锦帽貂裘 </span>
-            </p>  
+</head>
+<body>
+    <img src="js/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
+    <img src="js/music1.png" class="music" onclick="toggleMusic()">
+    <div class="main">
+        <p style="font-size: 80px;">品“<span class="red-word">狂</span>”
+    </div>
+    <div class="container">
+        <div class="left-text" onclick="handleClick(event, true)">
+            <p style="font-size: 40px;">
+                <span class="fade-in-line">狂在装备精良：</span><br>
+                <span class="fade-in-line">狂在队伍浩大：</span><br>
+                <span class="fade-in-line">狂在深得民心，百姓倾城：</span><br>
+                <span class="fade-in-line">狂在英武非凡，自比孙郎：</span><br>
+                <span class="fade-in-line">狂在老当益壮：</span><br>
+                <span class="fade-in-line">狂在壮志凌云：</span>
+            </p>
+        </div>
+        <div class="right-text" onclick="handleClick(event, false)">
+            <p style="font-size: 40px;">
+                <span class="fade-in-line">为报倾城随太守</span><br>
+                <span class="fade-in-line">亲射虎，看孙郎</span><br>
+                <span class="fade-in-line">千骑卷平岗</span><br>
+                <span class="fade-in-line">会挽雕弓如满月，西北望，射天狼</span><br>
+                <span class="fade-in-line">鬓微霜，又何妨</span><br>
+                <span class="fade-in-line">左牵黄，右擎苍，锦帽貂裘</span>
+            </p>
         </div>
     </div>
-	    <div class="end">  
-	        <p style="font-size: 35px;">小提示:点击左侧问题，点击右侧对应词句，完成连线</p>  
-	    </div>
-	<img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">  
-	<audio id="music" src="js/music1.mp3" autoplay loop></audio>
-</body>    
+    <div class="end">
+        <p style="font-size: 35px;">小提示: 点击左侧问题，点击右侧对应词句，完成连线</p>
+    </div>
+    <img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+    <audio id="music" src="js/music1.mp3" autoplay loop></audio>
+</body>
 </html>
+
