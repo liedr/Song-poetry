@@ -56,15 +56,6 @@
 
         /* 标题图片样式 */
         .title-image {
-            display: block;
-            max-width: 30%; 
-            height: auto; 
-            opacity: 0; 
-            transition: opacity 1s ease-in-out; 
-            margin: 0 auto; 
-            padding-top: 20px; 
-        }
-        .second-image {
             transition: opacity 1s ease-in-out;
             position: absolute;
             width: 20%;
@@ -72,6 +63,16 @@
             top:2%;
             left:40%;
             opacity: 0;
+            
+        }
+        .second-image {
+            opacity: 0;
+            transition: opacity 1s ease-in-out; 
+            position: absolute;
+            width: 30%; 
+            height: auto; 
+            top:20%;
+            left:8%;
         }
 
         .third-image {
@@ -388,5 +389,6 @@
     
 </body>
 </html>
+
 
 
