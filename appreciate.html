@@ -149,9 +149,6 @@
         }
     </style>
     <script>
-        let startPoint = null;
-        let endPoint = null;
-
         function toggleMusic() {
             var music = document.getElementById('music');
             var musicImg = document.querySelector('.music');
@@ -173,6 +170,9 @@
         function navigateToNextPage() {
             window.location.href = 'allusion.html';
         }
+        let startPoint = null;
+        let startId = null;
+        let currentLine = null;
 
         function createLine(x1, y1, x2, y2) {
             const length = Math.hypot(x2 - x1, y2 - y1);
@@ -184,26 +184,62 @@
             line.style.top = `${y1}px`;
             line.style.transform = `rotate(${angle}deg)`;
             document.body.appendChild(line);
+            return line;
+        }
+
+        function updateLine(line, x1, y1, x2, y2) {
+            const length = Math.hypot(x2 - x1, y2 - y1);
+            const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+            line.style.width = `${length}px`;
+            line.style.left = `${x1}px`;
+            line.style.top = `${y1}px`;
+            line.style.transform = `rotate(${angle}deg)`;
         }
 
         function handleClick(e, isLeft) {
-		    const target = e.target.closest('.fade-in-line');
-		    if (!target) return;
-		
-		    if (isLeft) {
-		        startPoint = target.getBoundingClientRect();
-		    } else if (startPoint) {
-		        const endPoint = target.getBoundingClientRect();
-		        createLine(
-		            startPoint.x + startPoint.width / 2,
-		            startPoint.y + startPoint.height / 2,
-		            endPoint.x + endPoint.width / 8,
-		            endPoint.y + endPoint.height / 2
-		        );
-		        startPoint = null;
-		    }
-		}
-        
+            const target = e.target.closest('.fade-in-line');
+            if (!target) return;
+
+            if (isLeft) {
+                startPoint = target.getBoundingClientRect();
+                startId = target.id;
+                if (currentLine) {
+                    currentLine.remove();
+                }
+                currentLine = createLine(
+                    startPoint.x + startPoint.width / 3,
+                    startPoint.y + startPoint.height / 2,
+                    startPoint.x + startPoint.width / 3,
+                    startPoint.y + startPoint.height / 2
+                );
+                document.addEventListener('mousemove', handleMouseMove);
+            } else if (startPoint && startId === target.id) {
+                const endPoint = target.getBoundingClientRect();
+                updateLine(
+                    currentLine,
+                    startPoint.x + startPoint.width / 2,
+                    startPoint.y + startPoint.height / 2,
+                    endPoint.x + endPoint.width / 8,
+                    endPoint.y + endPoint.height / 2
+                );
+                document.removeEventListener('mousemove', handleMouseMove);
+                currentLine = null;
+                startPoint = null;
+                startId = null;
+            }
+        }
+
+        function handleMouseMove(e) {
+            if (currentLine && startPoint) {
+                updateLine(
+                    currentLine,
+                    startPoint.x + startPoint.width / 3,
+                    startPoint.y + startPoint.height / 2,
+                    e.clientX,
+                    e.clientY
+                );
+            }
+        }
     </script>
 </head>
 <body>
