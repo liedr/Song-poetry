@@ -33,29 +33,38 @@
             animation: flipVertical 2s linear;
         }
         .container {
-            position: relative;
-            display: flex;
             justify-content: space-between;
             cursor: pointer;
+            position: absolute;
+			top:15%;
+            left: 5%;
+            width: 90%;
+            height: 40%;
+        }
+        .right,.wrong{
+        	position: absolute;
+            top: 30%;
+            left: 35%;
+            width: 30%;
+            height: 40%;
+            opacity: 0;
         }
         .left-text {
             color: #8B1A1A;
             flex: 1;
             font-family: 'LiSu', serif;
             position: absolute;
-            bottom: 40px;
-            left: 5%;
-            width: 35%;
-            height: 50%;
+			top:0%;
+            left: 0%;
+            width: 40%;
         }
         .right-text {
             flex: 1;
             font-family: 'LiSu', serif;
             position: absolute;
-            bottom: 40px;
-            right:3%;
+			top:0%;
+            right: 0%;
             width: 45%;
-            height: 50%;
         }
         .end {
             position: absolute;
@@ -149,7 +158,7 @@
         }
     </style>
     <script>
-        function toggleMusic() {
+    	function toggleMusic() {
             var music = document.getElementById('music');
             var musicImg = document.querySelector('.music');
             if (music.paused) {
@@ -173,7 +182,7 @@
         let startPoint = null;
         let startId = null;
         let currentLine = null;
-
+        
         function createLine(x1, y1, x2, y2) {
             const length = Math.hypot(x2 - x1, y2 - y1);
             const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
@@ -213,6 +222,12 @@
                     startPoint.y + startPoint.height / 2
                 );
                 document.addEventListener('mousemove', handleMouseMove);
+                var right = document.querySelector('.right');
+                right.style.opacity = '0';
+                right.style.zIndex = '0';
+                var wrong = document.querySelector('.wrong');
+                wrong.style.opacity = '0';
+                wrong.style.zIndex = '0';
             } else if (startPoint && startId === target.id) {
                 const endPoint = target.getBoundingClientRect();
                 updateLine(
@@ -226,6 +241,26 @@
                 currentLine = null;
                 startPoint = null;
                 startId = null;
+                var right = document.querySelector('.right');
+                right.style.opacity = '1';
+                right.style.zIndex = '1';
+                var wrong = document.querySelector('.wrong');
+                wrong.style.opacity = '0';
+                wrong.style.zIndex = '0';
+            } else if (startPoint && startId !== target.id) {
+                if (currentLine) {
+                    currentLine.remove();
+                    currentLine = null;
+                }
+                startPoint = null;
+                startId = null;
+                var right = document.querySelector('.right');
+                right.style.opacity = '0';
+                right.style.zIndex = '0';
+                var wrong = document.querySelector('.wrong');
+                wrong.style.opacity = '1';
+                wrong.style.zIndex = '1';
+                document.removeEventListener('mousemove', handleMouseMove);
             }
         }
 
@@ -245,28 +280,30 @@
 <body>
     <img src="js/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
     <img src="js/music1.png" class="music" onclick="toggleMusic()">
+    <img src="img/right.png" class="right">
+    <img src="img/wrong.png" class="wrong">
     <div class="main">
         <p style="font-size: 80px;">品“<span class="red-word">狂</span>”
     </div>
     <div class="container">
         <div class="left-text" onclick="handleClick(event, true)">
-            <p style="font-size: 40px;">
-                <span class="fade-in-line">狂在装备精良：</span><br>
-                <span class="fade-in-line">狂在队伍浩大：</span><br>
-                <span class="fade-in-line">狂在深得民心，百姓倾城：</span><br>
-                <span class="fade-in-line">狂在英武非凡，自比孙郎：</span><br>
-                <span class="fade-in-line">狂在老当益壮：</span><br>
-                <span class="fade-in-line">狂在壮志凌云：</span>
+            <p style="font-size:2.5em;">
+                <span class="fade-in-line" id="equip">狂在装备精良：</span><br>
+                <span class="fade-in-line" id="troop">狂在队伍浩大：</span><br>
+                <span class="fade-in-line" id="people">狂在深得民心，百姓倾城：</span><br>
+                <span class="fade-in-line" id="assertive">狂在英武非凡，自比孙郎：</span><br>
+                <span class="fade-in-line" id="mentality">狂在老当益壮：</span><br>
+                <span class="fade-in-line" id="target">狂在壮志凌云：</span>
             </p>
         </div>
         <div class="right-text" onclick="handleClick(event, false)">
-            <p style="font-size: 40px;">
-                <span class="fade-in-line">为报倾城随太守</span><br>
-                <span class="fade-in-line">亲射虎，看孙郎</span><br>
-                <span class="fade-in-line">千骑卷平岗</span><br>
-                <span class="fade-in-line">会挽雕弓如满月，西北望，射天狼</span><br>
-                <span class="fade-in-line">鬓微霜，又何妨</span><br>
-                <span class="fade-in-line">左牵黄，右擎苍，锦帽貂裘</span>
+            <p style="font-size: 2.5em;">
+                <span class="fade-in-line" id="people">为报倾城随太守</span><br>
+                <span class="fade-in-line" id="assertive">亲射虎，看孙郎</span><br>
+                <span class="fade-in-line" id="troop">千骑卷平岗</span><br>
+                <span class="fade-in-line" id="target">会挽雕弓如满月，西北望，射天狼</span><br>
+                <span class="fade-in-line" id="mentality">鬓微霜，又何妨</span><br>
+                <span class="fade-in-line" id="equip">左牵黄，右擎苍，锦帽貂裘</span>
             </p>
         </div>
     </div>
