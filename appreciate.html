@@ -14,11 +14,26 @@
             box-sizing: border-box;
         }
         body {
-            background: url("img/mountain.png") no-repeat center center;
+            background: url("img/background.png") no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
             background-color: #CCCCCC;
             overflow: hidden;
+        }
+        .title{
+        	position: absolute;
+			top:2%;
+			left:42%;
+			width:16%;
+			height:11%;
+        }
+        .red-word {
+        	position: absolute;
+			top:2%;
+			right:45%;
+			width:5.5%;
+			height:11%;
+            animation: flipVertical 2s linear;
         }
         .container {
             position: absolute;
@@ -48,6 +63,15 @@
             height: 12%;
             opacity: 0;      	
         }
+        .end {
+            position: absolute;
+            bottom: 10px;
+            left: 20%;
+            width: auto;
+            height: 30px;
+            text-align: center;
+            font-family: 'LiSu', serif;
+        }
 
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -76,7 +100,54 @@
         .fade-in-line:nth-of-type(10) { position: absolute; width: 45%; height: 6.9%; animation-delay: 4.8s; }
         .fade-in-line:nth-of-type(11) { position: absolute; width: 21%; height: 6.8%; animation-delay: 5.2s; }
         .fade-in-line:nth-of-type(12) { position: absolute; width: 35%; height: 6.8%; animation-delay: 5.6s; }
-
+        .header-image {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5%;
+            height: 10%;
+            animation: moveLeft 2s infinite;
+        }
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 8%;
+            width: 5.5%;
+            height: 9.5%;
+            animation: rotateMusic 4s linear infinite;
+        }
+        .footer-image {
+		   position: absolute;  
+		   bottom: 2%;   
+		   right: 2%; 
+       	   width: 5%;
+           height:15%;
+           animation: moveright 2s infinite;
+		}
+		@keyframes moveright {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(40%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+        .music.rotate {
+            animation: none;
+            transform: rotate(0deg);
+        }
+        @keyframes moveLeft {
+            0% { transform: translateX(0%); }
+            50% { transform: translateX(-10%); }
+            100% { transform: translateX(0%); }
+        }
+        @keyframes rotateMusic {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
         .line {
             position: absolute;
             background-color: #B22222;
@@ -225,7 +296,8 @@
 	    <img src="img/line/wrong.png" class="wrong">
 	    <img src="img/line/quit.png" class="quit" onclick="quit()">
     </div>
-
+    <img src="img/line/title.png" class="title">
+    <img src="img/line/title1.png" class="red-word">
 	 <div class="container" onclick="handleClick(event, event.target.closest('.fade-in-line.left'))">
 	 	
 	    <img src="img/line/question1.png" class="fade-in-line left" id="equip" style="top: 20%; left: 8%;">
@@ -244,5 +316,12 @@
 	    <img src="img/line/answer6.png" class="fade-in-line right" id="equip" style="top: 81%; left: 55%;">
 	    
 	</div>
+    <div class="end">
+        <p style="font-size: 35px;">小提示: 点击左侧问题，点击右侧对应词句，完成连线</p>
+    </div>
+    <img src="js/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
+    <img src="js/music1.png" class="music" onclick="toggleMusic()">
+    <img src="js/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+    <audio id="music" src="js/music1.mp3" autoplay loop></audio>
 </body>
 </html>
