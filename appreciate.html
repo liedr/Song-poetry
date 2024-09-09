@@ -20,34 +20,10 @@
             background-color: #CCCCCC;
             overflow: hidden;
         }
-        .main {
-			position: absolute;
-			top:4%;
-			left:40%;
-			width:18%;
-			height:13%;
-        }
-        .title{
-        	position: absolute;
-			top:0%;
-			left:0.2%;
-			width:100%;
-			height:100%;
-        }
-        .red-word {
-        	position: absolute;
-			top:-0.2%;
-			right:18%;
-			width:35%;
-			height:100%;
-            animation: flipVertical 2s linear;
-        }
         .container {
             position: absolute;
-			top:20%;
-            left: 5%;
-            width: 90%;
-            height: 70%;
+            width: 100%;
+            height: 100%;
         }
         .comment{
         	position: absolute;
@@ -70,32 +46,9 @@
             right: 8%;
             width: 8%;
             height: 12%;
-            opacity: 0;
-                    	
+            opacity: 0;      	
         }
-        .left-text {
-            position: absolute;
-			top:0%;
-            left: 0%;
-            width: 40%;
-            height:100%;
-        }
-        .right-text {
-            position: absolute;
-			top:0%;
-            right: 0%;
-            width: 45%;
-            height:100%;
-        }
-        .end {
-            position: absolute;
-            bottom: 10px;
-            left: 20%;
-            width: auto;
-            height: 30px;
-            text-align: center;
-            font-family: 'LiSu', serif;
-        }
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -108,141 +61,22 @@
             animation-fill-mode: forwards;
         }
         .fade-in-line:hover {
-            transform: scale(1.03);
-            filter: brightness(110%);
+            transform: scale(1.05);
+            filter: brightness(120%);
         }
-        .left-text .fade-in-line:nth-of-type(1) {
-        	position: absolute;
-			top:0%;
-            left: 0%;
-            width: 50%;
-            height:7.5%;
-            animation-delay: 1.2s; }
-        .left-text .fade-in-line:nth-of-type(2) { 
-        	position: absolute;
-			top:17%;
-            left: 0%;
-            width: 50%;
-            height:7.5%;        	
-        	animation-delay: 1.6s; }
-        .left-text .fade-in-line:nth-of-type(3) { 
-        	position: absolute;
-			top:34%;
-            left: 0%;
-            width:90%;
-            height:8.5%;        	
-        	animation-delay: 2.0s; }
-        .left-text .fade-in-line:nth-of-type(4) { 
-        	position: absolute;
-			top:51%;
-            left: 0%;
-            width: 90%;
-            height:8.5%;        	
-        	animation-delay: 2.4s; }
-        .left-text .fade-in-line:nth-of-type(5) { 
-        	position: absolute;
-			top:68%;
-            left: 0%;
-            width: 50%;
-            height:7.5%;        	
-        	animation-delay: 2.8s; }
-        .left-text .fade-in-line:nth-of-type(6) { 
-        	position: absolute;
-			top:85%;
-            left: 0%;
-            width: 50%;
-            height:7.5%;        	
-        	animation-delay: 3.2s; }
-        .right-text .fade-in-line:nth-of-type(1) { 
-        	position: absolute;
-			top:-1.8%;
-            left: 0%;
-            width: 52%;
-            height:8.8%;        	
-        	animation-delay: 3.6s; }
-        .right-text .fade-in-line:nth-of-type(2) { 
-        	position: absolute;
-			top:15.2%;
-            left: 0%;
-            width: 52%;
-            height:9.3%;        	
-        	animation-delay: 4.0s; }
-        .right-text .fade-in-line:nth-of-type(3) { 
-        	position: absolute;
-			top:32.2%;
-            left: 0%;
-            width: 36%;
-            height:9.5%;        	
-        	animation-delay: 4.4s; }
-        .right-text .fade-in-line:nth-of-type(4) { 
-        	position: absolute;
-			top:49.2%;
-            left: 0%;
-            width: 100%;
-            height:10%;        	
-        	animation-delay: 4.8s; }
-        .right-text .fade-in-line:nth-of-type(5) { 
-        	position: absolute;
-			top:66.2%;
-            left: 0%;
-            width: 52%;
-            height:9.2%;        	
-        	animation-delay: 5.2s; }
-        .right-text .fade-in-line:nth-of-type(6) { 
-        	position: absolute;
-			top:83.2%;
-            left: 0%;
-            width: 80%;
-            height:10.5%;        	
-        	animation-delay: 5.6s; }
-        .header-image {
-            position: absolute;
-            top: 2%;
-            left: 2%;
-            width: 5%;
-            height: 10%;
-            animation: moveLeft 2s infinite;
-        }
-        .music {
-            position: absolute;
-            top: 2%;
-            left: 8%;
-            width: 5.5%;
-            height: 9.5%;
-            animation: rotateMusic 4s linear infinite;
-        }
-        .footer-image {
-		   position: absolute;  
-		   bottom: 2%;   
-		   right: 2%; 
-       	   width: 5%;
-           height:15%;
-           animation: moveright 2s infinite;
-		}
-		@keyframes moveright {
-		    0% {
-		        transform: translateX(0%);
-		    }
-		    50% {
-		        transform: translateX(40%);
-		    }
-		    100% {
-		        transform: translateX(0%);
-		    }
-		}
-        .music.rotate {
-            animation: none;
-            transform: rotate(0deg);
-        }
-        @keyframes moveLeft {
-            0% { transform: translateX(0%); }
-            50% { transform: translateX(-10%); }
-            100% { transform: translateX(0%); }
-        }
-        @keyframes rotateMusic {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        .fade-in-line:nth-of-type(1) { position: absolute; width: 16.8%; height: 5.5%; animation-delay: 1.2s; }
+        .fade-in-line:nth-of-type(2) { position: absolute; width: 16.8%; height: 5.5%; animation-delay: 1.6s; }
+        .fade-in-line:nth-of-type(3) { position: absolute; width: 30%; height: 6.3%; animation-delay: 2.0s; }
+        .fade-in-line:nth-of-type(4) { position: absolute; width: 30%; height: 6.3%; animation-delay: 2.4s; }
+        .fade-in-line:nth-of-type(5) { position: absolute; width: 16.8%; height: 5.5%; animation-delay: 2.8s; }
+        .fade-in-line:nth-of-type(6) { position: absolute; width: 16.8%; height: 5.5%; animation-delay: 3.2s; }
+        .fade-in-line:nth-of-type(7) { position: absolute; width: 20.5%; height: 6.8%; animation-delay: 3.6s; }
+        .fade-in-line:nth-of-type(8) { position: absolute; width: 20.5%; height: 6.8%; animation-delay: 4.0s; }
+        .fade-in-line:nth-of-type(9) { position: absolute; width: 15%; height: 6.8%; animation-delay: 4.4s; }
+        .fade-in-line:nth-of-type(10) { position: absolute; width: 45%; height: 6.9%; animation-delay: 4.8s; }
+        .fade-in-line:nth-of-type(11) { position: absolute; width: 21%; height: 6.8%; animation-delay: 5.2s; }
+        .fade-in-line:nth-of-type(12) { position: absolute; width: 35%; height: 6.8%; animation-delay: 5.6s; }
+
         .line {
             position: absolute;
             background-color: #B22222;
@@ -251,7 +85,7 @@
         }
     </style>
     <script>
-    	function toggleMusic() {
+        function toggleMusic() {
             var music = document.getElementById('music');
             var musicImg = document.querySelector('.music');
             if (music.paused) {
@@ -272,6 +106,7 @@
         function navigateToNextPage() {
             window.location.href = 'allusion.html';
         }
+        
         let startPoint = null;
         let startId = null;
         let currentLine = null;
@@ -385,40 +220,29 @@
     </script>
 </head>
 <body>
-    <img src="img/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
-    <img src="img/music1.png" class="music" onclick="toggleMusic()">
     <div class="comment">
 	    <img src="img/line/right.png" class="right">
 	    <img src="img/line/wrong.png" class="wrong">
 	    <img src="img/line/quit.png" class="quit" onclick="quit()">
     </div>
 
-    <div class="main">
-        <img src="img/line/title.png" class="title">
-        <img src="img/line/title1.png" class="red-word">
-    </div>
-    <div class="container">
-        <div class="left-text" onclick="handleClick(event, true)">
-                <img src="img/line/question1.png" class="fade-in-line" id="equip">
-                <img src="img/line/question2.png" class="fade-in-line" id="troop">
-                <img src="img/line/question3.png" class="fade-in-line" id="people">
-                <img src="img/line/question4.png" class="fade-in-line" id="assertive">
-                <img src="img/line/question5.png" class="fade-in-line" id="mentality">
-                <img src="img/line/question6.png" class="fade-in-line" id="target">
-        </div>
-        <div class="right-text" onclick="handleClick(event, false)">
-                <img src="img/line/answer1.png" class="fade-in-line" id="people">
-                <img src="img/line/answer2.png" class="fade-in-line" id="assertive">
-                <img src="img/line/answer3.png" class="fade-in-line" id="troop">
-                <img src="img/line/answer4.png" class="fade-in-line" id="target">
-                <img src="img/line/answer5.png" class="fade-in-line" id="mentality">
-                <img src="img/line/answer6.png" class="fade-in-line" id="equip">
-        </div>
-    </div>
-    <div class="end">
-        <p style="font-size: 35px;">小提示: 点击左侧问题，点击右侧对应词句，完成连线</p>
-    </div>
-    <img src="img/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
-    <audio id="music" src="audio/music1.mp3" autoplay loop></audio>
+	 <div class="container" onclick="handleClick(event, event.target.closest('.fade-in-line.left'))">
+	 	
+	    <img src="img/line/question1.png" class="fade-in-line left" id="equip" style="top: 20%; left: 8%;">
+	    <img src="img/line/question2.png" class="fade-in-line left" id="troop" style="top: 31%; left: 8%;">
+	    <img src="img/line/question3.png" class="fade-in-line left" id="people" style="top:43%; left: 8%;">
+	    <img src="img/line/question4.png" class="fade-in-line left" id="assertive" style="top: 55%; left: 8%;">
+	    <img src="img/line/question5.png" class="fade-in-line left" id="mentality" style="top: 67%; left: 8%;">
+	    <img src="img/line/question6.png" class="fade-in-line left" id="target" style="top: 79%; left: 8%;">
+	    
+	    
+	    <img src="img/line/answer1.png" class="fade-in-line right" id="people" style="top: 20%; left: 55%;">
+	    <img src="img/line/answer2.png" class="fade-in-line right" id="assertive" style="top: 32%; left: 55%;">
+	    <img src="img/line/answer3.png" class="fade-in-line right" id="troop" style="top: 43%; left: 55%;">
+	    <img src="img/line/answer4.png" class="fade-in-line right" id="target" style="top: 55%; left: 55%;">
+	    <img src="img/line/answer5.png" class="fade-in-line right" id="mentality" style="top: 68%; left: 55%;">
+	    <img src="img/line/answer6.png" class="fade-in-line right" id="equip" style="top: 81%; left: 55%;">
+	    
+	</div>
 </body>
 </html>
