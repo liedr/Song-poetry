@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>章节</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #F2EAD1;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .mountain{
+        	width:100%;
+        	height:100%;
+        }
+
+        .archery {
+            position: absolute;
+            top: 45%;
+            left: 2%;
+            width: 28%;
+            height: 55%;
+        }
+        .goose {
+            position: absolute;
+            top: 2%;
+            right: 1%;
+            width: 20%;
+            height: 35%;
+        }
+
+        .chapter1 {
+            position: absolute;
+            top: 15%;
+            left: 38%;
+            width: 9%;
+            height: 55%;
+        }
+        
+        .chapter2 {
+            position: absolute;
+            top: 15%;
+            left: 53%;
+            width: 9%;
+            height: 55%;
+        }
+        .chapter3 {
+            position: absolute;
+            top: 15%;
+            left: 68%;
+            width: 9%;
+            height: 55%;
+        }
+        .chapter1:hover, .chapter2:hover, .chapter3:hover {
+		    transform: scale(1.05);
+		    filter: brightness(110%);
+		}
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5.5%;
+            height: 9.5%;
+            animation: rotateMusic 4s linear infinite; 
+        }
+        
+        .music.rotate {
+            animation: none;
+            transform: rotate(0deg);
+        }
+
+        
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+    	function navigateToNextPage1() {
+            window.location.href = 'read.html';
+        }
+        function navigateToNextPage2() {
+            window.location.href = 'author.html';
+        }
+        function navigateToNextPage3() {
+            window.location.href = 'appreciate.html';
+        }
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'img/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'img/closemusic.png';                
+                musicImg.classList.add('rotate');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="background">
+    	<img src="img/mountain.png" class="mountain">
+        <img src="img/directory/archery.png" class="archery">
+        <img src="img/directory/goose.png" class="goose">
+        <img src="img/directory/chapter1.png" class="chapter1"	onclick="navigateToNextPage1()">
+        <img src="img/directory/chapter2.png" class="chapter2" onclick="navigateToNextPage2()">
+        <img src="img/directory/chapter3.png" class="chapter3" onclick="navigateToNextPage3()">
+        <img src="img/music1.png" class="music" onclick="toggleMusic()">
+    </div>
+    <audio id="music" src="audio/music1.mp3" autoplay loop></audio>
+</body>
+</html>

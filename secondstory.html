@@ -1,0 +1,227 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>自比冯唐</title>  
+<style>  
+    body {
+        background: url("img/secondbackground.jpg") no-repeat center center;
+        background-size: cover;      
+        background-attachment: fixed;   
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+        justify-content: center;  
+        height: 100vh;  
+        margin: 0;  
+        font-family: 'LiSu', serif;  
+    }  
+  
+   .center-text {  
+   		position: absolute;
+		top:5%;
+       height:15%;
+       display: flex;  
+       justify-content: center; 
+       align-items: center;  
+   }
+  
+    .enlarged {  
+        font-size: 2em; 
+    }  
+
+   .button {  
+        display: inline-block;  
+        background-color: transparent; 
+        color:#B22222; 
+        font-size: 20px;
+        border: none;  
+        cursor: pointer;  
+       }  
+	#overlay {  
+	    position: fixed;  
+	    top: 0;  
+	    left: 0;  
+	    width: 100%;  
+	    height: 100%;  
+	    z-index: 999; 
+	    display: none; 
+	    }
+	.details {  
+	    display: block;  
+	    position: absolute;
+		top:23%;
+	    width:80%;
+	    height:65%;
+	    background-color: #FFEFD5; 
+        border: 15px solid #EEC591; 
+        border-radius: 60px;
+	}
+
+	#details p {  
+		position: relative;
+		top:0;
+		width:90%;
+		left:5%;
+        opacity: 0;  
+        transition: opacity 1s, transform 1s; 
+    }  
+   
+    @keyframes flipIn {  
+        0% {  
+            opacity: 0;  
+        }  
+        100% {  
+            opacity: 1;   
+        }  
+    }  
+    .music.rotate {
+        animation: none; 
+        transform: rotate(0deg);
+    }
+    
+	@keyframes moveLeft {
+	    0% {
+	        transform: translateX(0%);
+	    }
+	    50% {
+	        transform: translateX(-10%);
+	    }
+	    100% {
+	        transform: translateX(0%);
+	    }
+	}
+
+    @keyframes rotateMusic {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+        
+    }
+  
+    #details p:nth-child(1).show { animation: flipIn 1s 0s forwards; }  
+    #details p:nth-child(2).show { animation: flipIn 1s 0.5s forwards; }  
+    #details p:nth-child(3).show { animation: flipIn 1s 1s forwards; }  
+
+	.word{
+		color: #363636;
+	}
+	.header-image {  
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        width: 5%;
+        height: 10%;
+        animation: moveLeft 2s infinite;
+	    }
+
+    .music {
+        position: absolute;
+        top: 2%;
+        left: 8%;
+        width: 5.5%;
+        height: 9.5%;
+        animation: rotateMusic 4s linear infinite;
+        }
+        .footer-image {
+	   position: absolute;  
+	   bottom: 2%;   
+	   right: 3%; 
+       	   width: 5%;
+           height:15%;
+           animation: moveright 2s infinite;
+	}
+	@keyframes moveright {
+	    0% {
+		transform: translateX(0%);
+	    }
+	    50% {
+		transform: translateX(40%);
+	    }
+	    100% {
+		transform: translateX(0%);
+	    }
+	}
+</style>  
+
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'img/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'img/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'firststory.html';
+        }
+        function navigateToNextPage() {
+            window.location.href = 'thirdstory.html';
+        }
+
+        function showDetails() {  
+            var paragraphs = document.querySelectorAll('#details p');
+            paragraphs.forEach(function(paragraph) {
+                paragraph.classList.add('show');
+            });
+        }
+
+
+        document.getElementById('details').addEventListener('click', function(event) {  
+            event.stopPropagation(); 
+        });  
+    </script>
+</head>  
+<body>  
+  <img src="img/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
+<img src="img/music1.png" class="music" onclick="toggleMusic()">
+  
+<div class="center-text">  
+    <span id="sunLang" class="word"><p style="font-size: 70px;">持节云中，何日遣冯唐</p></span>  
+    <button class="button" onclick="showDetails()">查看详情</button>  
+</div>  
+  
+<div id="details" class="details">  
+    <p style="font-size: 40px;">冯唐，汉文帝时的一个年老的郎官。</p>  
+    <p style="font-size: 40px;">据《史记·张释之冯唐列传》记载在汉文帝时，魏尚为云中太守，抵御匈奴有功，只因报功时多报了六个首级而获罪削职。后来，文帝采纳了冯唐的劝谏，派冯唐持符节到云中去赦免魏尚。</p>  
+    <p style="font-size: 40px;">这里苏轼以魏尚自喻，表达了苏轼希望朝廷能像派冯唐赦魏尚那样重新重用自己。</p>  
+</div>  
+  
+<script>  
+        function showDetails() {  
+            var paragraphs = document.querySelectorAll('#details p');
+            paragraphs.forEach(function(paragraph) {
+                paragraph.classList.add('show');
+            });
+            document.getElementById('overlay').style.display = 'block'; 
+        }
+
+        function hideDetails() {  
+            var paragraphs = document.querySelectorAll('#details p');
+            paragraphs.forEach(function(paragraph) {
+                paragraph.classList.remove('show');
+            });
+            document.getElementById('overlay').style.display = 'none';  
+        }
+
+        document.getElementById('details').addEventListener('click', function(event) {  
+            event.stopPropagation(); 
+        });
+</script>  
+  <img src="img/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+  <audio id="music" src="audio/music1.mp3" autoplay loop></audio>
+</body>  
+</html>

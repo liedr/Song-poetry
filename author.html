@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>诗人介绍</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #F2EAD1;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .name{
+        	position: absolute;
+            top: 2%;
+            left: 41%;
+            width: 18%;
+            height:auto;
+        }
+        .mountain{
+        	width:100%;
+        	height:100%;
+        }
+        .live{
+        	position: absolute;
+            top: 14.8%;
+            left: 18%;
+            width: 13%;
+            height: 22%;
+            filter: brightness(108%);
+        }
+        .books{
+        	position: absolute;
+            top: 15%;
+            left: 42%;
+            width: 12.5%;
+            height: 22.5%;
+            filter: brightness(108%);
+        }
+		.achieve{
+			position: absolute;
+            top: 14.8%;
+            left: 66%;
+            width: 11.8%;
+            height: 22%;
+            filter: brightness(108%);
+		}
+		.live:hover, .books:hover, .achieve:hover {
+		    transform: scale(1.10);
+		    filter: brightness(130%);
+		}
+
+		.frame {
+            position: absolute;
+            top: 43%; 
+            left: 10%; 
+            width: 80%;
+            height: 50%;
+            background-color: #FFEFD5; /* 背景色 */
+            border: 15px solid #EEC591; /* 边框色 */
+            border-radius: 60px; /* 圆角 */
+          	overflow: hidden;
+        }
+        .live1{
+			position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+		}
+        .books1{
+			position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+            opacity: 0;
+		}
+        .achieve1{
+			position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+            opacity: 0;
+		}				
+        .author {
+		    position: absolute;
+		    bottom: -0.1%; 
+		    left: 0%; 
+		    width: 23%; 
+		    height: 95%;
+		    border-radius: 20px; 
+
+		}
+		.author1 {
+		    position: absolute;
+            top: 0%; 
+            left: 0%; 
+            width:100%;
+            height: 100%;
+            opacity: 0.3;
+
+		}
+		.verse {
+		    position: absolute;
+		    bottom: 1%;
+		    left: 40%; 
+		    width: 35%; 
+		    height: auto;
+
+		}
+		.font{
+			position: absolute;
+		    top: 8%; 
+		    left: 28%; 
+		    width:68%;
+
+			
+		}
+		.font1{
+			position: absolute;
+		    top: 33%; 
+		    left: 28%;
+		    width:68%;
+
+		}
+		.font2{
+			position: absolute;
+		    top: 2%; 
+		    left: 10%;
+		    width:80%;
+
+		}		
+
+
+        .back {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5%;
+            height: 10%;
+            animation: moveLeft 2s infinite;
+            
+        }
+
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 8%;
+            width: 5.5%;
+            height: 9.5%;
+            animation: rotateMusic 4s linear infinite;
+        }
+        .footer-image {
+		   position: absolute;  
+		   bottom: 2%;   
+		   right: 2%; 
+       	   width: 5%;
+           height:15%;
+           animation: moveright 2s infinite;
+		}
+		@keyframes moveright {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(40%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+        .music.rotate {
+            animation: none; 
+            transform: rotate(0deg);
+        }
+        
+		@keyframes moveLeft {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(-20%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+
+		
+
+
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
+    </style>
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'img/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'img/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'directory.html';
+        }
+        function navigateToNextPage() {
+            window.location.href = 'pintu.html';
+        }
+        function toggleLiveDetails() {
+            var liveDetails = document.querySelector('.live1');
+            var bookDetails = document.querySelector('.books1');
+            var achieveDetails = document.querySelector('.achieve1');
+            liveDetails.style.opacity = '1';
+            bookDetails.style.opacity = '0';
+            achieveDetails.style.opacity = '0';
+        }
+        function togglebookDetails() {
+            var liveDetails = document.querySelector('.live1');
+            var bookDetails = document.querySelector('.books1');
+            var achieveDetails = document.querySelector('.achieve1');
+            liveDetails.style.opacity = '0';
+            bookDetails.style.opacity = '1';
+            achieveDetails.style.opacity = '0';
+        }        
+        function toggleachieveDetails() {
+            var liveDetails = document.querySelector('.live1');
+            var bookDetails = document.querySelector('.books1');
+            var achieveDetails = document.querySelector('.achieve1');
+            liveDetails.style.opacity = '0';
+            bookDetails.style.opacity = '0';
+            achieveDetails.style.opacity = '1';
+        }
+    </script>
+</head>
+<body>
+    <div class="background">
+    	<img src="img/author/name.png" class="name">
+        <img src="img/mountain.png" class="mountain">
+		<img src="img/back.png" class="back" onclick="navigateToLestPage()">
+		<img src="img/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+        <img src="img/music1.png" class="music" onclick="toggleMusic()">
+		<img src="img/author/live.png" class="live" onclick="toggleLiveDetails()">
+		<img src="img/author/books.png" class="books" onclick="togglebookDetails()">
+		<img src="img/author/achieve.png" class="achieve" onclick="toggleachieveDetails()">
+		<div class="frame">
+			
+			<div class="live1">
+				<img src="img/author/author.png" class="author">
+				<img src="img/author/verse.png" class="verse">
+				<img src="img/author/font.png" class="font">
+				<img src="img/author/font1.png" class="font1">
+			</div>
+			<div class="books1">
+				<img src="img/author/book.png" class="author">
+				<img src="img/author/font2.png" class="font">
+			</div>
+			<div class="achieve1">
+				<img src="img/author/picture.png" class="author1">
+				<img src="img/author/font3.png" class="font2">
+			</div>
+		
+		</div>
+		
+   	 </div>
+    <audio id="music" src="audio/music1.mp3" autoplay loop></audio>
+</body>
+</html>

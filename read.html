@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>朗读</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #F2EAD1;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .mountain{
+        	width:100%;
+        	height:100%;
+        }
+        .book{
+        	position: absolute;
+            top: 10%;
+            left: 12.5%;
+        	width:75%;
+        	height:80%;
+        	animation: moveRightToLeft 2s forwards; 
+        }
+        .font1{
+        	position: absolute;
+            top:40%;
+            right: 31%;
+        	width:4.2%;
+        	height:30%;
+        	opacity: 0;
+        	animation: cansee 1s 6s forwards;
+        }
+        .font2{
+        	position: absolute;
+            top: 24%;
+            right: 19.5%;
+        	width:12%;
+        	height:50%;
+        	opacity: 0;
+        	animation: cansee 1s 3s forwards; 
+        }
+        .font3,.font4,.font5,.font6,.font7,.font8,.font9,.font10,.font11,.font12{
+        	position: absolute;
+            top: 20%;
+        	width:3.7%;
+        	opacity: 0;
+        }
+        .font3{
+        	right: 38.5%;
+        	height:48%;
+        	animation:cansee 4s 10.5s forwards; 
+        }
+        .font4{
+        	right: 42.3%;
+        	height:48%;
+        	animation:cansee 4s 14.5s forwards; 
+        }
+        .font5{
+        	width:3.7%;
+        	right: 46.2%;
+        	height:68%;
+        	animation:cansee 4s 18.5s forwards; 
+        }
+        .font6{
+        	right: 50.1%;
+        	height:50%;
+        	animation:cansee 4s 23.5s forwards; 
+        }
+        .font7{
+        	right: 53.6%;
+        	height:50%;
+        	animation:cansee 4s 26.5s forwards; 
+        	
+        }
+        .font8{
+        	width:3.8%;
+        	right: 57.5%;
+        	height:50.8%;
+        	animation:cansee 4s 31.5s forwards;
+        }
+        .font9{
+        	top: 20.5%;
+        	right: 60.9%;
+        	height:49.2%;
+        	animation:cansee 4s 35.5s forwards;
+        }
+        .font10{
+        	right: 64.68%;
+        	height:68%;
+        	animation:cansee 4s 40.5s forwards;
+        }
+        .font11{
+        	right: 68.45%;
+        	height:48%;
+        	animation:cansee 4s 45.5s forwards;
+        }
+        .font12{
+        	right: 72.2%;
+        	height:48%;
+        	animation:cansee 4s 49.5s forwards;
+        }
+        
+        .back {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5%;
+            height: 10%;
+            animation: moveLeft 2s infinite;
+            
+        }
+
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 8%;
+            width: 5.5%;
+            height: 9.5%;
+            animation: rotateMusic 4s linear infinite;
+        }
+
+        .music.rotate {
+            animation: none; 
+            transform: rotate(0deg);
+        }
+        .read{
+        	position: absolute;
+            top: 2%;
+            left: 14%;
+            height: 9.5%;
+            font-family: "楷体";
+            font-size: 1.5em;
+            color: red;
+        }
+        .title{
+        	position: absolute;
+            top: 0%;
+            left: 45%;
+            font-family: "楷体";
+            font-size:2.3em;
+            font-weight: bold;
+        }
+        
+		@keyframes moveLeft {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(-20%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+		
+		@keyframes moveRightToLeft {
+		    0% {
+		        opacity: 0;
+		    }
+		    100% {
+		        opacity: 0.8;
+		    }
+		}
+		@keyframes cansee {
+		    0% {
+		        opacity: 0;
+		    }
+		    100% {
+		        opacity: 1.2;
+		    }
+		}
+
+
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
+    </style>
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'img/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'img/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'directory.html';
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="background">
+    	<p class="read">点击音乐按钮播放音频</p>
+    	<p class="title">词文诵读</p>
+        <img src="img/mountain.png" class="mountain">
+		<img src="img/read/book1.png" class="book">
+		<img src="img/back.png" class="back" onclick="navigateToLestPage()">
+        <img src="img/closemusic.png" class="music" onclick="toggleMusic()">
+        <img src="img/read/1.png" class="font1">
+        <img src="img/read/2.png" class="font2">
+        <img src="img/read/3.png" class="font3">
+        <img src="img/read/4.png" class="font4">
+        <img src="img/read/5.png" class="font5">
+        <img src="img/read/6.png" class="font6">
+        <img src="img/read/7.png" class="font7">
+        <img src="img/read/8.png" class="font8">
+        <img src="img/read/9.png" class="font9">
+        <img src="img/read/10.png" class="font10">
+        <img src="img/read/11.png" class="font11">
+        <img src="img/read/12.png" class="font12">
+    </div>
+    <audio id="music" src="audio/read.mp3" loop></audio>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课后问题</title>
+   <style>  
+       body, html {  
+           height: 100%;  
+           margin: 0;  
+           padding: 0;  
+           font-family: 'LiSu', serif;  
+           background: url('img/secondbackground.jpg') no-repeat center center fixed;  
+           background-size: cover;  
+           color: #333;  
+       }  
+        .title{
+        	position: absolute;
+            top: 36%;
+            left: 2%;
+            width: 7%;
+            height: 28%;
+        }
+       .navbar {  
+           overflow: hidden;  
+           background-color: #333;  
+           position: fixed;  
+           top: 0;  
+           width: 100%;  
+           z-index: 1;  
+       }  
+     
+       .navbar a {  
+           float: left;  
+           display: block;  
+           color: #f2f2f2;  
+           text-align: center;  
+           padding: 14px 16px;  
+           text-decoration: none;  
+       }  
+     
+       .navbar a:hover {  
+           background-color: #ddd;  
+           color: black;  
+       }  
+     
+       .container {  
+           display: flex;  
+           justify-content: center;  
+           align-items: center;  
+           height: 100%;  
+           background: url('img/secondbackground.jpg') no-repeat center center fixed;  
+           background-size: cover;  
+       }  
+     
+       .quiz-container {  
+           background: rgba(255, 250, 232, 1.0);  
+           padding: 15px;  
+           border-radius: 8px;  
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+           width: 90%;
+           height: 80%;   
+           max-width: 1350px;  
+           text-align: center;  
+           margin: 80px auto;  
+           font-size: 40px;  
+       }  
+     
+       .question-container, .answer-container {  
+           margin-top: 15px;  
+       }  
+     
+       .question {  
+           margin-bottom: 15px;
+		   color: darkred;
+       }  
+     
+       .answer-box {  
+           background-color: white;  
+           color: black;  
+           border: none;  
+           padding: 15px;  
+           border-radius: 4px;  
+           cursor: pointer;  
+           text-align: center;  
+           margin-bottom: 15px;  
+           font-size: 20px;  
+           width: 250px;  
+           margin: 0 auto;  
+           display: block;  
+       }  
+     
+       .answer-box.show-answer {  
+           background-color: transparent;  
+           color: black;  
+       }  
+     
+       .answer-box:hover {  
+           background: rgba(255, 255, 255, 0.5);  
+           color: #333;  
+       }  
+     
+       .result {
+           margin-top: 15px;
+           text-align: left;  
+           text-indent: 35px; 
+       	   padding-left: 20px; 
+       	   padding-right: 10px; 
+       }   
+     
+       @keyframes fadeIn {  
+           from { opacity: 0; }  
+           to { opacity: 1; }  
+       }  
+     
+       .question-container {  
+           opacity: 0;  
+           animation: fadeIn 1s forwards;  
+       }  
+     
+       #question1 { animation-delay: 0s; }  
+       #question2 { animation-delay: 0.5s; }  
+       #question3 { animation-delay: 1s; }  
+       #question1{
+	   		height: 28%;
+	   }
+	   #question2{
+	   		height:28%;
+	   }
+	   #question3{
+	   		height:20%;
+	   }
+        .back {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 5%;
+            height: 10%;
+            animation: moveLeft 2s infinite;
+            
+        }
+
+        .music {
+            position: absolute;
+            top: 2%;
+            left: 8%;
+            width: 5.5%;
+            height: 9.5%;
+            animation: rotateMusic 4s linear infinite;
+        }
+        .footer-image {
+		   position: absolute;  
+		   bottom: 2%;   
+		   right: 2%; 
+       	   width: 5%;
+           height:15%;
+           animation: moveright 2s infinite;
+		}
+		@keyframes moveright {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(40%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+        .music.rotate {
+            animation: none; 
+            transform: rotate(0deg);
+        }
+        
+		@keyframes moveLeft {
+		    0% {
+		        transform: translateX(0%);
+		    }
+		    50% {
+		        transform: translateX(-20%);
+		    }
+		    100% {
+		        transform: translateX(0%);
+		    }
+		}
+
+		
+
+
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
+   </style>
+</head>
+
+<body>  
+	<img src="img/question.png" class="title">
+	<img src="img/back.png" class="back" onclick="navigateToLestPage()">
+	<img src="img/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+	<img src="img/music1.png" class="music" onclick="toggleMusic()">
+	<audio id="music" src="audio/music1.mp3" autoplay loop></audio>
+  <div class="container">
+    <div class="quiz-container">  
+        <div class="question-container" id="question1">  
+            <p class="question">4、赏析“会挽雕弓如满月，西北望，射天狼”。</p>  
+            <div class="answer-container">  
+                <div class="answer-box" onclick="showAnswer(this, 'result1','运用比喻，将“拉开的弓”比作“满月”。用“射天狼”的典故，表达了作者期望为国御敌立功、报效国家的雄心壮志和关怀国家命运的爱国精神。')">  
+                    点击这里查看答案  
+                </div>  
+                <p class="result" id="result1"></p>  
+            </div>  
+        </div>  
+        <div class="question-container" id="question2">  
+            <p class="question">5、简要分析上片记叙了一个怎样的场景？</p>  
+            <div class="answer-container">  
+                <div class="answer-box" onclick="showAnswer(this, 'result2', '记叙了一个壮观的出猎场景，词人装备齐全，率领众多随从，纵马狂奔，并表现出了像孙权一样的少年狂气。')">  
+                    点击这里查看答案  
+                </div>  
+                <p class="result" id="result2"></p>  
+            </div>  
+        </div>  
+        <div class="question-container" id="question3">  
+            <p class="question">6、上阙塑造了怎样的人物形象？</p>  
+            <div class="answer-container">  
+                <div class="answer-box" onclick="showAnswer(this, 'result3', '塑造了一个不减风华正茂之年、充满英雄豪气、意气风发的人物形象。')">  
+                    点击这里查看答案  
+                </div>  
+                <p class="result" id="result3"></p>  
+            </div>  
+        </div>  
+    </div>
+  </div>
+  
+   <script>  
+   	   	function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'img/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'img/closemusic.png';
+                
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLestPage() {
+            window.location.href = 'question1.html';
+        }
+        function navigateToNextPage() {
+            window.location.href = 'question3.html';
+        }
+       function showAnswer(box, resultId, answerText) {  
+           document.getElementById(resultId).innerText = answerText;  
+           box.style.display = 'none';
+       }
+	   function showAnswer(box, resultId, answerText) {
+	               document.getElementById(resultId).innerText = answerText;  
+	               box.style.display = 'none';  
+	           }   
+	    var answerBoxes = document.querySelectorAll('.answer-box');  
+	    answerBoxes.forEach(function(box) {  
+	    box.addEventListener('mouseenter', function() {  
+	     this.style.transform = 'scale(1.1)'; 
+	    });  
+	     
+	    box.addEventListener('mouseleave', function() {  
+	    this.style.transform = 'scale(1)';   
+	               });  
+	           });  
+   </script>
+  
+</body>  
+  
+</html>

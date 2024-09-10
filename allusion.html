@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>典故</title>
+    <style type="text/css">
+        body {
+            background: url("img/secondbackground.jpg") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .main, .content {
+            flex-shrink: 0;
+            font-family: 'LiSu', serif;
+            cursor: pointer;
+        }
+        .main {
+            position: absolute;
+            top: 8%;
+            left: 10%;
+            width: 10%;
+            color: darkgoldenrod;
+        }
+        .content {
+            position: absolute;
+            top: 18%;
+            left: 30%;
+            height: 30%;
+            bottom: 30px;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(0%);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content p {
+            opacity: 0;
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        .content p:nth-child(1) { animation-delay: 1.6s; }
+        .content p:nth-child(2) { animation-delay: 2.0s; }
+        .content p:nth-child(3) { animation-delay: 2.4s; }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .fade-in-line {
+            display: block;
+            opacity: 0;
+            animation-name: fadeIn;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+        .fade-in-line:nth-of-type(1) { animation-delay: 0s; }
+        .fade-in-line:nth-of-type(2) { animation-delay: 0.3s; }
+        .fade-in-line:nth-of-type(3) { animation-delay: 0.6s; }
+        .fade-in-line:nth-of-type(4) { animation-delay: 0.9s; }
+        .fade-in-line:nth-of-type(5) { animation-delay: 1.2s; }
+
+	.header-image {  
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        width: 5%;
+        height: 10%;
+        animation: moveLeft 2s infinite;
+	    }
+
+    .music {
+        position: absolute;
+        top: 2%;
+        left: 8%;
+        width: 5.5%;
+        height: 9.5%;
+        animation: rotateMusic 4s linear infinite;
+        }
+
+        .footer-image {
+	   position: absolute;  
+	   bottom: 2%;   
+	   right: 3%; 
+       	   width: 5%;
+           height:15%;
+           animation: moveright 2s infinite;
+	}
+	@keyframes moveright {
+	    0% {
+		transform: translateX(0%);
+	    }
+	    50% {
+		transform: translateX(40%);
+	    }
+	    100% {
+		transform: translateX(0%);
+	    }
+	}
+
+        .music.rotate {
+            animation: none;
+            transform: rotate(0deg);
+        }
+
+        @keyframes moveLeft {
+            0% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-10%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById('music');
+            var musicImg = document.querySelector('.music');
+
+            if (music.paused) {
+                music.play();
+                musicImg.src = 'img/music1.png';
+                musicImg.classList.remove('rotate');
+            } else {
+                music.pause();
+                musicImg.src = 'img/closemusic.png';
+                musicImg.classList.add('rotate');
+            }
+        }
+
+        function navigateToLastPage() {
+            window.location.href = 'appreciate.html';
+        }
+        function navigateToNextPage() {
+            window.location.href = 'firststory.html';
+        }
+    </script>
+</head>
+<body>
+    <img src="img/back.png" alt="Header Image" class="header-image" onclick="navigateToLastPage()">
+    <img src="img/music1.png" class="music" onclick="toggleMusic()">
+    <div class="main">
+        <p style="font-size: 95px;"><span class="fade-in-line">典<br></span>
+        <span class="fade-in-line">故<br></span>
+        <span class="fade-in-line">全<br></span>
+        <span class="fade-in-line">知<br></span>
+        <span class="fade-in-line">道<br></span></p>
+    </div>
+    <div class="content">
+        <p style="font-size: 80px;">⑴ 亲射虎，看孙郎</p>
+        <p style="font-size: 80px;">⑵ 持节云中，何日遣冯唐</p>
+        <p style="font-size: 80px;">⑶ 会挽雕弓如满月,西北望，射天狼</p>
+    </div>
+    <img src="img/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
+    <audio id="music" src="audio/music1.mp3" autoplay loop></audio>
+</body>
+</html>
