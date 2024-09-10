@@ -15,6 +15,7 @@
             text-align: center;
             overflow: hidden;
             height: 100vh;
+            position: relative;
         }
 
         .background {
@@ -22,7 +23,11 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
+        
         
         .firstbackground {
             width: 100%;
@@ -71,6 +76,7 @@
             animation: none;
             transform: rotate(0deg);
         }
+
         .video-overlay {
             position: fixed;
             top: 0;
@@ -88,6 +94,7 @@
             width: 100%;
             height: auto;
         }
+
         @keyframes slideInFromRight {
             0% {
                 opacity: 0;
@@ -126,11 +133,11 @@
 
             if (music.paused) {
                 music.play();
-                musicImg.src = 'js/music1.png';
+                musicImg.src = 'img/music1.png';
                 musicImg.classList.remove('rotate');
             } else {
                 music.pause();
-                musicImg.src = 'js/closemusic.png';                
+                musicImg.src = 'img/closemusic.png';                
                 musicImg.classList.add('rotate');
             }
         }
@@ -148,6 +155,7 @@
             videoElement.onended = function() {
                 videoOverlay.style.display = 'none';
             };
+
             animateIntoImg();
 
             intoImg.addEventListener('mouseenter', function() {
@@ -174,13 +182,13 @@
         <video id="introVideo" src="audio/video.mp4" autoplay muted></video>
     </div>
     <div class="background">
-        <img src="js/firstbackground.png" class="firstbackground">
-        <img src="js/firstpage.png" class="first">
-        <img src="js/firstfont.png" class="firstfont">
-        <img src="js/into.png" class="into" id="intoImg" onclick="navigateToNextPage()">
-        <img src="js/music1.png" class="music" onclick="toggleMusic()">
+        <img src="img/index/firstbackground.png" class="firstbackground">
+        <img src="img/index/firstpage.png" class="first">
+        <img src="img/index/firstfont.png" class="firstfont">
+        <img src="img/index/into.png" class="into" id="intoImg" onclick="navigateToNextPage()">
+        <img src="img/music1.png" class="music" onclick="toggleMusic()">
     </div>
-    <audio id="music" src="js/music4.MP3" autoplay></audio>
+    <audio id="music" src="audio/music4.mp3" autoplay loop></audio>
 </body>
 </html>
 
