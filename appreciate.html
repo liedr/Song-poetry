@@ -248,7 +248,7 @@
 		        setTimeout(() => {
 		            right.style.opacity = '0';
 		            quit.style.opacity = '0';
-		        }, 1000);
+		        }, 800);
             } else if (startPoint && startId !== target.id) {
                 if (currentLine) {
                     currentLine.remove();
@@ -268,7 +268,7 @@
                 setTimeout(() => {
 		            wrong.style.opacity = '0';
 		            quit.style.opacity = '0';
-		        }, 1500);
+		        }, 800);
                 document.removeEventListener('mousemove', handleMouseMove);
             }
         }
