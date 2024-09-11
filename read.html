@@ -139,23 +139,31 @@
             transform: rotate(0deg);
         }
         .read{
-        	position: absolute;
-            top: 2%;
+            position: absolute;
+            top: 3%;
             left: 14%;
-            height: 9.5%;
-            font-family: "楷体";
-            font-size: 1.5em;
-	    font-weight: bold;
-            color: red;
+            width: 20%;
+            height: 7%;
+            animation: scaleAnimation 1s infinite;
         }
         .title{
-        	position: absolute;
+            position: absolute;
             top: 0%;
-            left: 45%;
-            font-family: "楷体";
-            font-size:2.3em;
-            font-weight: bold;
+            left: 42.5%;
+            width: 15%;
+            height: 8.5%;
         }
+        @keyframes scaleAnimation {
+		    0% {
+		        transform: scale(1); 
+		    }
+		    50% {
+		        transform: scale(1.1);
+		    }
+		    100% {
+		        transform: scale(1); 
+		    }
+		}
         
 		@keyframes moveLeft {
 		    0% {
@@ -223,8 +231,8 @@
 </head>
 <body>
     <div class="background">
-    	<p class="read">点击音乐按钮播放音频</p>
-    	<p class="title">词文诵读</p>
+    	<img src="img/read/read.png" class="read">
+    	<img src="img/read/titie.png" class="title">
         <img src="img/mountain.png" class="mountain">
 		<img src="img/read/book1.png" class="book">
 		<img src="img/back.png" class="back" onclick="navigateToLestPage()">
