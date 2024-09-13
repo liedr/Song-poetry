@@ -205,74 +205,6 @@
             line.style.top = `${y1}px`;
             line.style.transform = `rotate(${angle}deg)`;
         }
-
-        function handleClick(e, isLeft) {
-            const target = e.target.closest('.fade-in-line');
-            if (!target) return;
-
-            if (isLeft) {
-                startPoint = target.getBoundingClientRect();
-                startId = target.id;
-                if (currentLine) {
-                    currentLine.remove();
-                }
-                currentLine = createLine(
-                    startPoint.x + startPoint.width,
-                    startPoint.y + startPoint.height / 2,
-                    startPoint.x + startPoint.width,
-                    startPoint.y + startPoint.height / 2
-                );
-                document.addEventListener('mousemove', handleMouseMove);
-            } else if (startPoint && startId === target.id) {
-                const endPoint = target.getBoundingClientRect();
-                updateLine(
-                    currentLine,
-                    startPoint.x + startPoint.width,
-                    startPoint.y + startPoint.height / 2,
-                    endPoint.x,
-                    endPoint.y + endPoint.height / 2
-                );
-                document.removeEventListener('mousemove', handleMouseMove);
-                currentLine = null;
-                startPoint = null;
-                startId = null;
-                var right = document.querySelector('.right');
-                var quit=document.querySelector('.quit');
-                right.style.opacity = '1';
-                right.style.zIndex = '1';
-                quit.style.opacity = '1';
-                quit.style.zIndex = '2';
-                var wrong = document.querySelector('.wrong');
-                wrong.style.opacity = '0';
-                wrong.style.zIndex = '0';
-		        setTimeout(() => {
-		            right.style.opacity = '0';
-		            quit.style.opacity = '0';
-		        }, 900);
-            } else if (startPoint && startId !== target.id) {
-                if (currentLine) {
-                    currentLine.remove();
-                    currentLine = null;
-                }
-                startPoint = null;
-                startId = null;
-                var quit=document.querySelector('.quit');
-                quit.style.opacity = '1';
-                quit.style.zIndex = '2';
-                var right = document.querySelector('.right');
-                right.style.opacity = '0';
-                right.style.zIndex = '0';
-                var wrong = document.querySelector('.wrong');
-                wrong.style.opacity = '1';
-                wrong.style.zIndex = '1';
-                setTimeout(() => {
-		            wrong.style.opacity = '0';
-		            quit.style.opacity = '0';
-		        }, 900);
-                document.removeEventListener('mousemove', handleMouseMove);
-            }
-        }
-
         function handleMouseMove(e) {
             if (currentLine && startPoint) {
                 updateLine(
@@ -285,6 +217,86 @@
             }
         }
         
+
+		function handleClick(e, isLeft) {
+		    const target = e.target.closest('.fade-in-line');
+		
+		    // 检查点击的是否是左侧图片
+		    if (!target) return;
+		
+		    if (isLeft) {
+		        startPoint = target.getBoundingClientRect();
+		        startId = target.id;
+		        if (currentLine) {
+		            currentLine.remove();
+		        }
+		        currentLine = createLine(
+		            startPoint.x + startPoint.width,
+		            startPoint.y + startPoint.height / 2,
+		            startPoint.x + startPoint.width,
+		            startPoint.y + startPoint.height / 2
+		        );
+		        document.addEventListener('mousemove', handleMouseMove);
+		    } else {
+		        // 如果点击右侧图片，开始连接
+		        const endPoint = target.getBoundingClientRect();
+		        if (startPoint && startId === target.id) {
+		            // 正确连接
+		            updateLine(
+		                currentLine,
+		                startPoint.x + startPoint.width,
+		                startPoint.y + startPoint.height / 2,
+		                endPoint.x,
+		                endPoint.y + endPoint.height / 2
+		            );
+		            document.removeEventListener('mousemove', handleMouseMove);
+		            currentLine = null;
+		            startPoint = null;
+		            startId = null;
+		
+		            // 显示正确的图像
+		            var right = document.querySelector('.right');
+		            var quit = document.querySelector('.quit');
+		            right.style.opacity = '1';
+		            right.style.zIndex = '1';
+		            quit.style.opacity = '1';
+		            quit.style.zIndex = '2';
+		
+		            var wrong = document.querySelector('.wrong');
+		            wrong.style.opacity = '0';
+		            wrong.style.zIndex = '0';
+		            setTimeout(() => {
+		                right.style.opacity = '0';
+		                quit.style.opacity = '0';
+		            }, 900);
+		        } else if (startPoint && startId !== target.id) {
+		            // 连接错误
+		            if (currentLine) {
+		                currentLine.remove();
+		                currentLine = null;
+		            }
+		            startPoint = null;
+		            startId = null;
+		
+		            var quit = document.querySelector('.quit');
+		            quit.style.opacity = '1';
+		            quit.style.zIndex = '2';
+		            var right = document.querySelector('.right');
+		            right.style.opacity = '0';
+		            right.style.zIndex = '0';
+		            var wrong = document.querySelector('.wrong');
+		            wrong.style.opacity = '1';
+		            wrong.style.zIndex = '1';
+		            setTimeout(() => {
+		                wrong.style.opacity = '0';
+		                quit.style.opacity = '0';
+		            }, 900);
+		            document.removeEventListener('mousemove', handleMouseMove);
+		        }
+		    }
+		}
+
+
     	function quit() {
                 var quit=document.querySelector('.quit');
                 quit.style.opacity = '0';
