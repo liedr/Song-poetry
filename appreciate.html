@@ -65,7 +65,7 @@
         }
         .end {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
             left: 20%;
             width: auto;
             height: 20px;
@@ -116,12 +116,19 @@
             height: 9.5%;
             animation: rotateMusic 4s linear infinite;
         }
+        .logo {
+            position: absolute;
+            top: 2%;
+            left: 15%;
+            width: 5.5%;
+            height: 10%;
+        }
         .footer-image {
 		   position: absolute;  
 		   bottom: 2%;   
 		   right: 2%; 
-       	   width: 5%;
-           height:15%;
+       	   width: 4%;
+           height:12%;
            animation: moveright 2s infinite;
 		}
 		@keyframes moveright {
@@ -341,6 +348,7 @@
     </div>
     <img src="img/back.png" alt="Header Image" class="header-image" onclick="navigateToLestPage()">
     <img src="img/music1.png" class="music" onclick="toggleMusic()">
+    <img src="img/logo2.png" class="logo">
     <img src="img/next.png" alt="Footer Image" class="footer-image" onclick="navigateToNextPage()">
     <audio id="music" src="audio/music1.mp3" autoplay loop></audio>
 </body>
